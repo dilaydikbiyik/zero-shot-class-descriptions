@@ -1,0 +1,528 @@
+{
+ "massive_intent": {
+  "alarm_query": {
+   "identifier": "alarm_query",
+   "terse_tr": "alarm sorgulama",
+   "definition_assistant_tr": "Kurulmuş alarmların ne zamana ayarlandığını öğrenme isteği.",
+   "definition_native_tr": ""
+  },
+  "alarm_remove": {
+   "identifier": "alarm_remove",
+   "terse_tr": "alarm silme",
+   "definition_assistant_tr": "Daha önce kurulmuş bir alarmın iptal edilmesi veya silinmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "alarm_set": {
+   "identifier": "alarm_set",
+   "terse_tr": "alarm kurma",
+   "definition_assistant_tr": "Belirli bir saat veya gün için yeni bir alarm kurulması isteği.",
+   "definition_native_tr": ""
+  },
+  "audio_volume_down": {
+   "identifier": "audio_volume_down",
+   "terse_tr": "sesi azaltma",
+   "definition_assistant_tr": "Cihazın ses seviyesinin düşürülmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "audio_volume_mute": {
+   "identifier": "audio_volume_mute",
+   "terse_tr": "sesi kapatma",
+   "definition_assistant_tr": "Sesin tamamen kapatılması veya cihazın sessize alınması isteği.",
+   "definition_native_tr": ""
+  },
+  "audio_volume_other": {
+   "identifier": "audio_volume_other",
+   "terse_tr": "diğer ses ayarı",
+   "definition_assistant_tr": "Ses seviyesiyle ilgili, açma kapama veya artırma azaltma dışında kalan ayar isteği.",
+   "definition_native_tr": ""
+  },
+  "audio_volume_up": {
+   "identifier": "audio_volume_up",
+   "terse_tr": "sesi artırma",
+   "definition_assistant_tr": "Cihazın ses seviyesinin yükseltilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "calendar_query": {
+   "identifier": "calendar_query",
+   "terse_tr": "takvim sorgulama",
+   "definition_assistant_tr": "Takvimdeki randevu, toplantı veya etkinliklerin ne zaman olduğunu öğrenme isteği.",
+   "definition_native_tr": ""
+  },
+  "calendar_remove": {
+   "identifier": "calendar_remove",
+   "terse_tr": "takvim kaydı silme",
+   "definition_assistant_tr": "Takvimdeki bir randevu veya etkinliğin iptal edilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "calendar_set": {
+   "identifier": "calendar_set",
+   "terse_tr": "takvime kayıt ekleme",
+   "definition_assistant_tr": "Takvime yeni bir randevu, toplantı veya hatırlatma eklenmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "cooking_query": {
+   "identifier": "cooking_query",
+   "terse_tr": "yemek sorgulama",
+   "definition_assistant_tr": "Yemek, malzeme veya pişirme yöntemleri hakkında bilgi isteği.",
+   "definition_native_tr": ""
+  },
+  "cooking_recipe": {
+   "identifier": "cooking_recipe",
+   "terse_tr": "yemek tarifi",
+   "definition_assistant_tr": "Belirli bir yemeğin tarifinin istenmesi.",
+   "definition_native_tr": ""
+  },
+  "datetime_convert": {
+   "identifier": "datetime_convert",
+   "terse_tr": "saat dönüştürme",
+   "definition_assistant_tr": "Bir saatin veya tarihin başka bir saat dilimine ya da biçime çevrilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "datetime_query": {
+   "identifier": "datetime_query",
+   "terse_tr": "tarih saat sorgulama",
+   "definition_assistant_tr": "İçinde bulunulan saatin, günün veya tarihin sorulması.",
+   "definition_native_tr": ""
+  },
+  "email_addcontact": {
+   "identifier": "email_addcontact",
+   "terse_tr": "kişi ekleme",
+   "definition_assistant_tr": "Adres defterine yeni bir kişi kaydedilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "email_query": {
+   "identifier": "email_query",
+   "terse_tr": "e-posta sorgulama",
+   "definition_assistant_tr": "Gelen veya giden e-postaların okunması ya da kontrol edilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "email_querycontact": {
+   "identifier": "email_querycontact",
+   "terse_tr": "kişi bilgisi sorgulama",
+   "definition_assistant_tr": "Kayıtlı bir kişinin e-posta adresi veya iletişim bilgisinin sorulması.",
+   "definition_native_tr": ""
+  },
+  "email_sendemail": {
+   "identifier": "email_sendemail",
+   "terse_tr": "e-posta gönderme",
+   "definition_assistant_tr": "Birine e-posta yazılması veya gönderilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "general_greet": {
+   "identifier": "general_greet",
+   "terse_tr": "selamlaşma",
+   "definition_assistant_tr": "Karşılama, selam verme veya hal hatır sorma.",
+   "definition_native_tr": ""
+  },
+  "general_joke": {
+   "identifier": "general_joke",
+   "terse_tr": "şaka",
+   "definition_assistant_tr": "Şaka veya espri anlatılması isteği.",
+   "definition_native_tr": ""
+  },
+  "general_quirky": {
+   "identifier": "general_quirky",
+   "terse_tr": "sınıflanamayan",
+   "definition_assistant_tr": "Diğer başlıkların hiçbirine girmeyen, kişisel veya sıra dışı konuşmalar.",
+   "definition_native_tr": ""
+  },
+  "iot_cleaning": {
+   "identifier": "iot_cleaning",
+   "terse_tr": "robot süpürge",
+   "definition_assistant_tr": "Robot süpürgenin çalıştırılması veya temizliğe başlatılması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_coffee": {
+   "identifier": "iot_coffee",
+   "terse_tr": "kahve makinesi",
+   "definition_assistant_tr": "Kahve makinesinin çalıştırılması veya kahve hazırlanması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_hue_lightchange": {
+   "identifier": "iot_hue_lightchange",
+   "terse_tr": "ışık rengi değiştirme",
+   "definition_assistant_tr": "Akıllı ampulün renginin değiştirilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_hue_lightdim": {
+   "identifier": "iot_hue_lightdim",
+   "terse_tr": "ışığı kısma",
+   "definition_assistant_tr": "Işığın parlaklığının azaltılması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_hue_lightoff": {
+   "identifier": "iot_hue_lightoff",
+   "terse_tr": "ışığı kapatma",
+   "definition_assistant_tr": "Işığın veya lambanın kapatılması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_hue_lighton": {
+   "identifier": "iot_hue_lighton",
+   "terse_tr": "ışığı açma",
+   "definition_assistant_tr": "Işığın veya lambanın açılması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_hue_lightup": {
+   "identifier": "iot_hue_lightup",
+   "terse_tr": "ışığı parlatma",
+   "definition_assistant_tr": "Işığın parlaklığının artırılması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_wemo_off": {
+   "identifier": "iot_wemo_off",
+   "terse_tr": "prizi kapatma",
+   "definition_assistant_tr": "Akıllı prizin veya ona bağlı cihazın kapatılması isteği.",
+   "definition_native_tr": ""
+  },
+  "iot_wemo_on": {
+   "identifier": "iot_wemo_on",
+   "terse_tr": "prizi açma",
+   "definition_assistant_tr": "Akıllı prizin veya ona bağlı cihazın açılması isteği.",
+   "definition_native_tr": ""
+  },
+  "lists_createoradd": {
+   "identifier": "lists_createoradd",
+   "terse_tr": "listeye ekleme",
+   "definition_assistant_tr": "Yeni bir liste oluşturulması veya mevcut listeye madde eklenmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "lists_query": {
+   "identifier": "lists_query",
+   "terse_tr": "liste sorgulama",
+   "definition_assistant_tr": "Bir listede nelerin bulunduğunun sorulması.",
+   "definition_native_tr": ""
+  },
+  "lists_remove": {
+   "identifier": "lists_remove",
+   "terse_tr": "listeden çıkarma",
+   "definition_assistant_tr": "Bir listeden madde silinmesi veya listenin tamamen kaldırılması isteği.",
+   "definition_native_tr": ""
+  },
+  "music_dislikeness": {
+   "identifier": "music_dislikeness",
+   "terse_tr": "müziği beğenmeme",
+   "definition_assistant_tr": "Çalan parçanın beğenilmediğinin bildirilmesi.",
+   "definition_native_tr": ""
+  },
+  "music_likeness": {
+   "identifier": "music_likeness",
+   "terse_tr": "müziği beğenme",
+   "definition_assistant_tr": "Çalan parçanın beğenildiğinin bildirilmesi.",
+   "definition_native_tr": ""
+  },
+  "music_query": {
+   "identifier": "music_query",
+   "terse_tr": "müzik sorgulama",
+   "definition_assistant_tr": "Çalan parçanın veya sanatçının hangisi olduğunun sorulması.",
+   "definition_native_tr": ""
+  },
+  "music_settings": {
+   "identifier": "music_settings",
+   "terse_tr": "müzik ayarları",
+   "definition_assistant_tr": "Çalma listesi, tekrar veya karışık çalma gibi müzik ayarlarının değiştirilmesi.",
+   "definition_native_tr": ""
+  },
+  "news_query": {
+   "identifier": "news_query",
+   "terse_tr": "haber sorgulama",
+   "definition_assistant_tr": "Güncel haberlerin veya belirli bir konudaki gelişmelerin sorulması.",
+   "definition_native_tr": ""
+  },
+  "play_audiobook": {
+   "identifier": "play_audiobook",
+   "terse_tr": "sesli kitap çalma",
+   "definition_assistant_tr": "Sesli kitap açılması veya kaldığı yerden devam ettirilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "play_game": {
+   "identifier": "play_game",
+   "terse_tr": "oyun başlatma",
+   "definition_assistant_tr": "Bir oyunun açılması veya oynanmaya başlanması isteği.",
+   "definition_native_tr": ""
+  },
+  "play_music": {
+   "identifier": "play_music",
+   "terse_tr": "müzik çalma",
+   "definition_assistant_tr": "Belirli bir şarkının, sanatçının veya listenin çalınması isteği.",
+   "definition_native_tr": ""
+  },
+  "play_podcasts": {
+   "identifier": "play_podcasts",
+   "terse_tr": "podcast çalma",
+   "definition_assistant_tr": "Bir podcast bölümünün açılması isteği.",
+   "definition_native_tr": ""
+  },
+  "play_radio": {
+   "identifier": "play_radio",
+   "terse_tr": "radyo açma",
+   "definition_assistant_tr": "Bir radyo istasyonunun açılması isteği.",
+   "definition_native_tr": ""
+  },
+  "qa_currency": {
+   "identifier": "qa_currency",
+   "terse_tr": "döviz sorgulama",
+   "definition_assistant_tr": "Para birimleri arasındaki kurun veya çevrim değerinin sorulması.",
+   "definition_native_tr": ""
+  },
+  "qa_definition": {
+   "identifier": "qa_definition",
+   "terse_tr": "tanım sorgulama",
+   "definition_assistant_tr": "Bir kelimenin veya kavramın ne anlama geldiğinin sorulması.",
+   "definition_native_tr": ""
+  },
+  "qa_factoid": {
+   "identifier": "qa_factoid",
+   "terse_tr": "bilgi sorusu",
+   "definition_assistant_tr": "Tek bir doğru cevabı olan genel bilgi sorusu.",
+   "definition_native_tr": ""
+  },
+  "qa_maths": {
+   "identifier": "qa_maths",
+   "terse_tr": "matematik sorusu",
+   "definition_assistant_tr": "Bir hesabın yapılması veya matematik sorusunun cevaplanması isteği.",
+   "definition_native_tr": ""
+  },
+  "qa_stock": {
+   "identifier": "qa_stock",
+   "terse_tr": "borsa sorgulama",
+   "definition_assistant_tr": "Bir hisse senedinin veya borsanın durumunun sorulması.",
+   "definition_native_tr": ""
+  },
+  "recommendation_events": {
+   "identifier": "recommendation_events",
+   "terse_tr": "etkinlik önerisi",
+   "definition_assistant_tr": "Katılınabilecek etkinlik veya organizasyon önerilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "recommendation_locations": {
+   "identifier": "recommendation_locations",
+   "terse_tr": "yer önerisi",
+   "definition_assistant_tr": "Gidilebilecek mekan, restoran veya yer önerilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "recommendation_movies": {
+   "identifier": "recommendation_movies",
+   "terse_tr": "film önerisi",
+   "definition_assistant_tr": "İzlenebilecek film önerilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "social_post": {
+   "identifier": "social_post",
+   "terse_tr": "sosyal medya paylaşımı",
+   "definition_assistant_tr": "Sosyal medyada gönderi paylaşılması isteği.",
+   "definition_native_tr": ""
+  },
+  "social_query": {
+   "identifier": "social_query",
+   "terse_tr": "sosyal medya sorgulama",
+   "definition_assistant_tr": "Sosyal medyadaki bildirimlerin veya gönderilerin kontrol edilmesi isteği.",
+   "definition_native_tr": ""
+  },
+  "takeaway_order": {
+   "identifier": "takeaway_order",
+   "terse_tr": "paket sipariş verme",
+   "definition_assistant_tr": "Paket servis veya eve teslim yemek siparişi verilmesi.",
+   "definition_native_tr": ""
+  },
+  "takeaway_query": {
+   "identifier": "takeaway_query",
+   "terse_tr": "paket servis sorgulama",
+   "definition_assistant_tr": "Paket servisin var olup olmadığının veya siparişin durumunun sorulması.",
+   "definition_native_tr": ""
+  },
+  "transport_query": {
+   "identifier": "transport_query",
+   "terse_tr": "ulaşım sorgulama",
+   "definition_assistant_tr": "Otobüs, tren veya uçak gibi ulaşım seçeneklerinin ve saatlerinin sorulması.",
+   "definition_native_tr": ""
+  },
+  "transport_taxi": {
+   "identifier": "transport_taxi",
+   "terse_tr": "taksi çağırma",
+   "definition_assistant_tr": "Taksi veya araç çağrılması isteği.",
+   "definition_native_tr": ""
+  },
+  "transport_ticket": {
+   "identifier": "transport_ticket",
+   "terse_tr": "bilet alma",
+   "definition_assistant_tr": "Ulaşım için bilet satın alınması veya ayrılması isteği.",
+   "definition_native_tr": ""
+  },
+  "transport_traffic": {
+   "identifier": "transport_traffic",
+   "terse_tr": "trafik sorgulama",
+   "definition_assistant_tr": "Yoldaki trafik durumunun sorulması.",
+   "definition_native_tr": ""
+  },
+  "weather_query": {
+   "identifier": "weather_query",
+   "terse_tr": "hava durumu sorgulama",
+   "definition_assistant_tr": "Hava durumunun veya sıcaklığın sorulması.",
+   "definition_native_tr": ""
+  }
+ },
+ "massive_scenario": {
+  "alarm": {
+   "identifier": "alarm",
+   "terse_tr": "alarm",
+   "definition_assistant_tr": "Alarm kurma, sorgulama ve silme ile ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "audio": {
+   "identifier": "audio",
+   "terse_tr": "ses",
+   "definition_assistant_tr": "Cihazın ses seviyesinin ayarlanmasıyla ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "calendar": {
+   "identifier": "calendar",
+   "terse_tr": "takvim",
+   "definition_assistant_tr": "Randevu, toplantı ve etkinliklerin takvimde yönetilmesiyle ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "cooking": {
+   "identifier": "cooking",
+   "terse_tr": "yemek",
+   "definition_assistant_tr": "Yemek tarifleri ve pişirmeyle ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "datetime": {
+   "identifier": "datetime",
+   "terse_tr": "tarih saat",
+   "definition_assistant_tr": "Saat, tarih ve saat dilimi dönüşümleriyle ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "email": {
+   "identifier": "email",
+   "terse_tr": "e-posta",
+   "definition_assistant_tr": "E-posta gönderme, okuma ve kişi yönetimiyle ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "general": {
+   "identifier": "general",
+   "terse_tr": "genel",
+   "definition_assistant_tr": "Selamlaşma, şaka ve diğer başlıklara girmeyen genel konuşmalar.",
+   "definition_native_tr": ""
+  },
+  "iot": {
+   "identifier": "iot",
+   "terse_tr": "akıllı ev",
+   "definition_assistant_tr": "Işık, priz, kahve makinesi ve robot süpürge gibi akıllı ev cihazlarının denetimi.",
+   "definition_native_tr": ""
+  },
+  "lists": {
+   "identifier": "lists",
+   "terse_tr": "listeler",
+   "definition_assistant_tr": "Alışveriş veya yapılacaklar listelerinin oluşturulması ve düzenlenmesi.",
+   "definition_native_tr": ""
+  },
+  "music": {
+   "identifier": "music",
+   "terse_tr": "müzik",
+   "definition_assistant_tr": "Çalan müziğin sorgulanması, beğenilmesi ve müzik ayarları.",
+   "definition_native_tr": ""
+  },
+  "news": {
+   "identifier": "news",
+   "terse_tr": "haberler",
+   "definition_assistant_tr": "Güncel haberlerin sorulmasıyla ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "play": {
+   "identifier": "play",
+   "terse_tr": "oynatma",
+   "definition_assistant_tr": "Müzik, radyo, podcast, sesli kitap ve oyun başlatma istekleri.",
+   "definition_native_tr": ""
+  },
+  "qa": {
+   "identifier": "qa",
+   "terse_tr": "soru cevap",
+   "definition_assistant_tr": "Bilgi, tanım, hesap, döviz ve borsa sorularının cevaplanması.",
+   "definition_native_tr": ""
+  },
+  "recommendation": {
+   "identifier": "recommendation",
+   "terse_tr": "öneri",
+   "definition_assistant_tr": "Film, mekan ve etkinlik önerisi istekleri.",
+   "definition_native_tr": ""
+  },
+  "social": {
+   "identifier": "social",
+   "terse_tr": "sosyal medya",
+   "definition_assistant_tr": "Sosyal medyada paylaşım yapma ve bildirimleri kontrol etme.",
+   "definition_native_tr": ""
+  },
+  "takeaway": {
+   "identifier": "takeaway",
+   "terse_tr": "paket servis",
+   "definition_assistant_tr": "Paket servis yemek siparişi verme ve sorgulama.",
+   "definition_native_tr": ""
+  },
+  "transport": {
+   "identifier": "transport",
+   "terse_tr": "ulaşım",
+   "definition_assistant_tr": "Toplu taşıma, taksi, bilet ve trafikle ilgili istekler.",
+   "definition_native_tr": ""
+  },
+  "weather": {
+   "identifier": "weather",
+   "terse_tr": "hava durumu",
+   "definition_assistant_tr": "Hava durumu ve sıcaklık sorguları.",
+   "definition_native_tr": ""
+  }
+ },
+ "ttc4900": {
+  "siyaset": {
+   "identifier": "siyaset",
+   "terse_tr": "siyaset",
+   "definition_assistant_tr": "Hükümet, siyasi partiler, seçimler, meclis ve devlet yönetimiyle ilgili haberler.",
+   "definition_native_tr": ""
+  },
+  "dunya": {
+   "identifier": "dunya",
+   "terse_tr": "dünya",
+   "definition_assistant_tr": "Yurt dışındaki ülkeleri, uluslararası ilişkileri ve dış politikayı konu alan haberler.",
+   "definition_native_tr": ""
+  },
+  "ekonomi": {
+   "identifier": "ekonomi",
+   "terse_tr": "ekonomi",
+   "definition_assistant_tr": "Piyasalar, enflasyon, döviz, şirketler ve ekonomi politikalarıyla ilgili haberler.",
+   "definition_native_tr": ""
+  },
+  "kultur": {
+   "identifier": "kultur",
+   "terse_tr": "kültür",
+   "definition_assistant_tr": "Sanat, edebiyat, sinema, müzik ve kültürel etkinliklerle ilgili haberler.",
+   "definition_native_tr": ""
+  },
+  "saglik": {
+   "identifier": "saglik",
+   "terse_tr": "sağlık",
+   "definition_assistant_tr": "Hastalıklar, tedaviler, tıp araştırmaları ve sağlık hizmetleriyle ilgili haberler.",
+   "definition_native_tr": ""
+  },
+  "spor": {
+   "identifier": "spor",
+   "terse_tr": "spor",
+   "definition_assistant_tr": "Müsabakalar, kulüpler, sporcular ve spor organizasyonlarıyla ilgili haberler.",
+   "definition_native_tr": ""
+  },
+  "teknoloji": {
+   "identifier": "teknoloji",
+   "terse_tr": "teknoloji",
+   "definition_assistant_tr": "Bilişim, internet, yazılım, donanım ve bilimsel teknolojiyle ilgili haberler.",
+   "definition_native_tr": ""
+  }
+ },
+ "metadata": {
+  "created": "2026-11-19T16:41:55+00:00",
+  "arms": {
+   "identifier": "The class name as the dataset ships it, in English. Arm 1.",
+   "terse_tr": "The same name in Turkish, nothing added. Hand-translated control, arm 2.",
+   "definition_assistant_tr": "A Turkish definition written by this project's assistant from the class name alone, arm 3. Matches the 'assistant' arm of run_description_source.py.",
+   "definition_native_tr": "A Turkish definition written by the author, a native speaker, arm 4. EMPTY until written. Must be written from the class name alone, before any document or error is seen."
+  },
+  "note": "No accuracy had been computed on either corpus when arms 1-3 were written."
+ }
+}

@@ -11,7 +11,12 @@ the work supports is collected in `docs/recipe.md`, with a measured budget, a
 measured price for getting it wrong, and an abstention curve. 214 tests in CI,
 paper body at the 8-page limit. Submitted to ARR on 12 October 2026 as
 submission 6377; the version that was uploaded is pinned at tag
-`v1-arr-october-2026` and described in `docs/submission_v1.md`.
+`v1-arr-october-2026` and described in `docs/submission_v1.md`. **That
+submission was desk rejected on 27 October 2026 without being reviewed**: it
+went into the lottery pool because no service contributor was nominated, and
+was not drawn. The letter states that the decision "is not an assessment of
+your paper" and that it is without prejudice. Nothing about the evidence
+changed; what changed is that the paper is no longer under review anywhere.
 
 ---
 
@@ -89,6 +94,15 @@ about German. Every other gap on this list was closed with the corpora already
 here; this one cannot be, because it needs labelled documents in a language
 nobody has labelled for us. It also needs a new dependency to fetch them, which
 is a decision for after the submission rather than before it.
+**Now being closed.** The design is written down in
+[`docs/turkish_phase.md`](docs/turkish_phase.md), before the data is on disk:
+Turkish, MASSIVE (tr-TR) and TTC-4900, with six predictions to register and a
+fourth description-writer arm — a native speaker — that no earlier study has.
+Turkish NACE was the first choice and is ruled out on **access, not method**:
+the gazette's announcement texts sit behind a login, MERSİS publishes no bulk
+download or public API, and TÜİK's firm-level query is not public. Recorded so
+it is not reopened without one of those three changing.
+
 **Afterwards:** the claim is about zero-shot classification, not about one task.
 
 ---
@@ -183,28 +197,61 @@ is a decision for after the submission rather than before it.
       preregistrations; nothing is written back into the ones already in
       `results/`.
 - [x] **Submitted to ARR**, 12 October 2026, submission 6377.
-- [ ] **Register as a reviewer by 14 October** — a submission whose authors are
-      not registered can be desk rejected.
-- [ ] **Name a service contributor by 15 October, 14:59 TR.** ARR requires one
-      per submission and a bachelor's student cannot serve as their own, so this
-      is a request to your supervisor and the only item here with a hard
-      external dependency.
+- [x] **Service contributor — this is what cost the cycle.** The October 2026
+      cycle was the first under ACL's sustainable reviewing policy: a submission
+      that names no qualified contributor is not reviewed on its merits but
+      placed in a lottery for whatever capacity remains. 6377 was placed there
+      and not drawn. The field was not present in the submission form on
+      12 October — the revision history shows it first appearing as an empty
+      field in a venue-side post-submission edit on 13 October at 15:32 — but
+      the outcome is the same either way, and the rule is now known.
+      **Next time the order is: arrange the contributor first, submit second.**
+      The submission form opens about two weeks before the deadline, and the
+      contributor must file their own registration form within 48 hours of it.
+      A contributor need not be a co-author, but they must be qualified to
+      review, have a complete OpenReview profile, and accept that their own
+      submissions are desk rejected if they do not serve.
+- [ ] **The route that needs nobody: qualify yourself.** ARR allows manual
+      verification for authors who lack the publication count but have a record
+      of reviewing or secondary reviewing at ARR. Signing up for that pool now
+      and building the record over a cycle or two makes you eligible to be your
+      own contributor, which is the only arrangement that does not depend on
+      someone else's goodwill. For a sole author this is the structural fix,
+      not a workaround.
 - [ ] **arXiv preprint.** The source package builds and is ready
       (`main.tex` with `\usepackage[preprint]{acl}`, `main.bbl`, `acl.sty`,
       `acl_natbib.bst`, `references.bib` and the fifteen table files; 18 pages,
       no unresolved citations). It is blocked on one thing only: cs.CL requires
       an **endorsement** for a first-time submitter, requested 12 October.
       Primary category `cs.CL`, cross-list `cs.LG`, licence CC BY 4.0 to match
-      OpenReview. Nothing about the evidence depends on this — the ARR
-      submission and the tag are the timestamp; arXiv adds reach, not record.
+      OpenReview. Nothing about the evidence depends on this — the submission
+      record and the tag are the timestamp; arXiv adds reach, not record. The
+      desk rejection removes the last reason to wait: the paper is under review
+      nowhere, so no anonymity or dual-submission rule applies to it now.
 - [ ] **Read the paper end to end**, and look at the pages as well as the words.
       Three appendix tables were printing over each other until you noticed it in
       the PDF; a test now catches that class of defect, but only the kinds it was
       taught. Every sentence has to be defensible by you;
       the defence notebook exists for this.
-- [ ] **Optional, valuable:** code 50 errors blind (the coding tool is in your
-      Downloads), and find a German reader for the 50-document blind sample
-      (`make second-annotator`, instructions in `docs/second_annotator.md`).
+- [ ] **No longer optional — this is what the next cycle is for.** The delay
+      bought a window, and the three things in it are the ones reviewers would
+      have pressed hardest on:
+
+      1. **A German second annotator** for the 50-document blind sample
+         (`make second-annotator`, `docs/second_annotator.md`). This closes the
+         largest stated gap: the labels are model-assisted and only the author
+         has verified them, so no human–human agreement exists anywhere in the
+         paper.
+      2. **The official NACE explanatory notes as an externally authored
+         control condition.** It answers the objection that the descriptions
+         carrying the main effect were written by the author, and the source
+         study already shows the effect is corpus knowledge rather than
+         authorship.
+      3. **Code 50 errors blind** — the coding tool is in your Downloads.
+
+      Each gets its own preregistration; none of it is written back into the
+      registrations already in `results/`, and `v1-arr-october-2026` stays as
+      the record of what was submitted in October.
 - [ ] **Rename the repository to `class-description-effect`** — *after your
       internship applications resolve*, so no application points at a dead link.
       When you rename it on GitHub, the seven files that hardcode the old name,
@@ -240,17 +287,18 @@ is a decision for after the submission rather than before it.
 
 | | |
 | --- | --- |
-| ARR submission | 12 October 2026 — **done**, submission 6377 |
-| Reviewer registration, mandatory | **14 October 2026** |
-| Service contributor named | **15 October 2026, 14:59 TR** |
-| OpenReview profile complete | ~20 October 2026 |
-| Reviews due | 16 November 2026 |
-| Author response | 24–30 November 2026 |
-| Meta-reviews released | 17 December 2026 |
-| Cycle ends | 20 December 2026 |
-| Commit to NAACL 2027 or COLING 2027 | 23 December 2026 |
+| ARR submission | 12 October 2026 — done, submission 6377 |
+| OpenReview profile complete | done, with ORCID |
+| Service contributor | **not nominated — this is what ended the cycle** |
+| Desk rejected: lottery, without prejudice | **27 October 2026** |
+| Next ARR cycle | not yet published; ACL 2027's ARR deadline is listed as January 2027 |
+| ISARC Marmara abstract, 12th congress | **18 December 2026** — no longer blocked |
 
-Checked against <https://aclrollingreview.org/dates> on 12 October 2026. Note
-that 16 November is when reviewers owe their reviews, not a promise that you see
-them that day; the date you can act on is 24 November, when the response period
-opens.
+Checked against <https://aclrollingreview.org/dates> on 27 October 2026; the
+cycles after October 2026 were not listed there yet. The October review dates —
+reviews 16 November, response 24–30 November, meta-reviews 17 December — no
+longer apply to this paper.
+
+Two things the desk rejection released rather than cost: the ISARC abstract was
+waiting for 17 December only because ARR forbids submitting elsewhere during
+review, and the arXiv preprint never depended on ARR at all. Both are free now.

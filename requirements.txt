@@ -13,6 +13,13 @@ langdetect==1.0.9
 pyyaml==6.0.3
 tqdm==4.67.3
 
+# Corpus fetching for the Turkish phase (experiments/fetch_turkish.py).
+# Both are already present transitively; pinned here because that module
+# imports them directly. The heavier `datasets` package is deliberately not
+# used: these two cover it.
+huggingface-hub==0.36.2
+pyarrow==20.0.0
+
 # Optional: LLM keyword validation and the LLM zero-shot baseline
 openai==2.34.0
 

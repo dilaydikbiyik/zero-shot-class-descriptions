@@ -1,0 +1,35 @@
+{
+ "massive": {
+  "repositories": [
+   "mteb/amazon_massive_intent",
+   "mteb/amazon_massive_scenario"
+  ],
+  "locale": "tr",
+  "control_locale": "en",
+  "splits": [
+   "train",
+   "validation",
+   "test"
+  ],
+  "documents": 16521,
+  "documents_control": 16521,
+  "sha256": "926dcd814cb1e656124101368a96c69088473ef12db0c15bbef0702c354d79cb",
+  "sha256_control": "eb2d428501ab43028d8d8bbe5326ba1983738e2a50d3f3f625130f86166e15c8",
+  "licence": "CC BY 4.0"
+ },
+ "ttc4900": {
+  "repository": "savasy/ttc4900",
+  "file": "ttc4900/train-00000-of-00001.parquet",
+  "documents": 4900,
+  "sha256": "c300bae82b10faedd5493aed5fada3d34ce71d909c250ab9d8cfac1fbdc6fe27",
+  "categories": {
+   "0": "siyaset",
+   "1": "dunya",
+   "2": "ekonomi",
+   "3": "kultur",
+   "4": "saglik",
+   "5": "spor",
+   "6": "teknoloji"
+  }
+ }
+}
