@@ -247,6 +247,16 @@ it is not reopened without one of those three changing.
          carrying the main effect were written by the author, and the source
          study already shows the effect is corpus knowledge rather than
          authorship.
+         *The text is now in place:* `make official-nace` fetches the WZ 2008
+         explanatory notes — the German implementation of NACE Rev. 2, written
+         by the Statistisches Bundesamt — into
+         `data/taxonomy/sectors_official.json`, in the documents' own language
+         and with attribution. Two arms, because the official notes vary
+         authorship and length together: the note verbatim (median 68 words,
+         670 for section C) and its first sentence (11–22 words, the band this
+         project's own descriptions sit in). Sections T and U carry no official
+         note and are recorded as missing rather than filled with their title.
+         **Still to do:** the study itself, with its own preregistration.
       3. **Code 50 errors blind** — the coding tool is in your Downloads.
 
       Each gets its own preregistration; none of it is written back into the
