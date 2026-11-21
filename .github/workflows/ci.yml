@@ -7,11 +7,23 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # The runner is pinned per interpreter, not shared. setup.cfg declares
+    # python_requires = >=3.9 and the README badge says 3.9+, so the 3.9 job is
+    # what makes that claim true; ubuntu-latest moved to 26.04, which no longer
+    # offers a 3.9 build, and the job failed at setup-python before running a
+    # test. Pinning the floor to the newest image that still has 3.9 keeps the
+    # claim tested. Do not replace this with ubuntu-latest: that drops 3.9
+    # coverage silently. If 3.9 disappears from 24.04 too, raise the floor in
+    # setup.cfg and the README in the same change, deliberately.
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.11"]
+        include:
+          - python-version: "3.9"
+            os: ubuntu-24.04
+          - python-version: "3.11"
+            os: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v7
