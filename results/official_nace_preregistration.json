@@ -1,0 +1,159 @@
+{
+  "study": "official_nace",
+  "registered_at": "2026-11-21T20:55:12+00:00",
+  "code_revision": "75a764c",
+  "method_fingerprint": "8069dcf8fe67a1047b4d769213f69cb6404696fbb691431922847e97851499bd",
+  "seed": 42,
+  "external_source": {
+    "classification": "WZ 2008, the German implementation of NACE Rev. 2",
+    "attribution": "© Statistisches Bundesamt, Wiesbaden 2008. Verbreitung, auch auszugsweise, mit Quellenangabe gestattet.",
+    "url": "https://www.klassifikationsserver.de/klassService/thyme/variant/download/wz2008?file=variant&type=csv",
+    "written_before_this_project": true
+  },
+  "label_space": {
+    "codes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "n_classes": 19,
+    "dropped": [
+      "T",
+      "U"
+    ],
+    "why_dropped": "No official explanatory note exists for these sections, so no external arm can describe them; dropping them from every arm keeps the argmax over the same classes in all four conditions.",
+    "documents_lost": 0,
+    "comparable_to_the_paper": false
+  },
+  "n_documents": 299,
+  "classes_measured": 18,
+  "mean_words_per_class": {
+    "terse German name": 10.105263157894736,
+    "definitions by the assistant": 19.31578947368421,
+    "the official note, verbatim": 147.05263157894737,
+    "the official note, first sentence": 26.0
+  },
+  "mean_alignment_change": {
+    "definitions by the assistant": 0.07971886641834135,
+    "the official note, verbatim": 0.02134923233496985,
+    "the official note, first sentence": -0.005042475096754355
+  },
+  "alignment_change_per_class": {
+    "definitions by the assistant": {
+      "A": 0.10380665169136494,
+      "C": 0.026353716847599684,
+      "D": -0.03386135161013892,
+      "E": -0.02052435032974076,
+      "F": 0.2505867308939963,
+      "G": 0.07729587258385873,
+      "H": 0.07776602849853553,
+      "I": 0.056630353024537006,
+      "J": 0.08807039034983244,
+      "K": 0.049626464370613466,
+      "L": 0.08523687991182038,
+      "M": 0.18660810177538978,
+      "N": 0.18378587813034242,
+      "O": 0.048245989199753814,
+      "P": 0.03456830515846354,
+      "Q": 0.1446735520128768,
+      "R": 0.021886721341725646,
+      "S": 0.05418366167931332
+    },
+    "the official note, verbatim": {
+      "A": 0.11530452878339748,
+      "C": -0.07319027358353303,
+      "D": -0.05073694342352497,
+      "E": 0.024855541265781822,
+      "F": 0.19895906217061654,
+      "G": 0.035672356447672526,
+      "H": 0.06417637670872967,
+      "I": -0.13730065834175442,
+      "J": 0.09166363394397059,
+      "K": 0.0335175313677849,
+      "L": 0.0867398690307507,
+      "M": -0.07495234330280937,
+      "N": -0.04247167597872492,
+      "O": 0.09922680732756056,
+      "P": -0.09337371972077979,
+      "Q": 0.08598044133779914,
+      "R": 0.061948963540107815,
+      "S": -0.041733315543587945
+    },
+    "the official note, first sentence": {
+      "A": 0.0640879010948806,
+      "C": -0.1555598276480108,
+      "D": -0.08014618195199313,
+      "E": 0.04252855450655191,
+      "F": 0.09073148608329484,
+      "G": -0.01469418879980855,
+      "H": 0.05515770728028102,
+      "I": -0.13898455342117355,
+      "J": 0.06600169257955091,
+      "K": -0.05655901561575383,
+      "L": 0.06421967778560789,
+      "M": -0.07186677630203708,
+      "N": 0.013899820037768795,
+      "O": 0.04882433871052588,
+      "P": -0.10837127707127814,
+      "Q": 0.06975044299349498,
+      "R": 0.061948963540107815,
+      "S": -0.041733315543587945
+    }
+  },
+  "predictions": [
+    {
+      "id": "direction-definitions by the assistant",
+      "claim": "Against the control, definitions by the assistant raises Top-1 accuracy.",
+      "condition": "definitions by the assistant",
+      "expected_sign": 1
+    },
+    {
+      "id": "direction-the official note, verbatim",
+      "claim": "Against the control, the official note, verbatim raises Top-1 accuracy.",
+      "condition": "the official note, verbatim",
+      "expected_sign": 1
+    },
+    {
+      "id": "direction-the official note, first sentence",
+      "claim": "Against the control, the official note, first sentence lowers Top-1 accuracy.",
+      "condition": "the official note, first sentence",
+      "expected_sign": -1
+    },
+    {
+      "id": "ordering",
+      "claim": "The gains follow the order of the alignment changes: definitions by the assistant > the official note, verbatim > the official note, first sentence.",
+      "order": [
+        "definitions by the assistant",
+        "the official note, verbatim",
+        "the official note, first sentence"
+      ]
+    },
+    {
+      "id": "authorship-not-length",
+      "claim": "The two official arms move accuracy in opposite directions, as their alignment changes do",
+      "expected_agreement": false,
+      "why": "They differ by nearly a factor of six in length and not at all in authorship, so a length reading of the effect predicts they diverge and an authorship reading predicts they agree. Which of the two is predicted here is fixed by the measured alignment changes, not chosen."
+    },
+    {
+      "id": "per-class",
+      "claim": "For the official note, the per-class alignment change correlates positively with the share of available headroom captured (Spearman rho > 0)."
+    }
+  ],
+  "note": "Written before any accuracy under the official class texts was computed."
+}

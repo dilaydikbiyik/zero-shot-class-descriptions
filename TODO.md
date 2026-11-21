@@ -247,16 +247,30 @@ it is not reopened without one of those three changing.
          carrying the main effect were written by the author, and the source
          study already shows the effect is corpus knowledge rather than
          authorship.
-         *The text is now in place:* `make official-nace` fetches the WZ 2008
-         explanatory notes — the German implementation of NACE Rev. 2, written
-         by the Statistisches Bundesamt — into
-         `data/taxonomy/sectors_official.json`, in the documents' own language
-         and with attribution. Two arms, because the official notes vary
-         authorship and length together: the note verbatim (median 68 words,
-         670 for section C) and its first sentence (11–22 words, the band this
-         project's own descriptions sit in). Sections T and U carry no official
-         note and are recorded as missing rather than filled with their title.
-         **Still to do:** the study itself, with its own preregistration.
+         *Done, as far as it can go without the author:* `make
+         official-nace-fetch` fetches the WZ 2008 explanatory notes — the
+         German implementation of NACE Rev. 2, written by the Statistisches
+         Bundesamt in 2008 — into `data/taxonomy/sectors_official.json`, in the
+         documents' own language and with attribution.
+         `make official-nace-preregister` then registers the prediction and
+         `make official-nace` tests it (`experiments/run_official_nace.py`,
+         `docs/official_nace.md`).
+         Four arms: the terse control and the assistant's definitions, which
+         the description-source study also uses, plus the official note
+         verbatim (median 78 words over the nineteen sections that carry one,
+         670 for section C) and its first sentence (median 19, against this
+         project's own 6–25). The official text enters twice because a single
+         external arm would vary authorship and length together; the two arms
+         differ by nearly a factor of six in length and not at all in
+         authorship, so a length reading of any effect has to predict they
+         diverge.
+         Sections T and U carry no official note. They are recorded as missing
+         rather than filled with their title, and dropped from the label space
+         of **all four** arms, so every arm faces the same 19-way problem. No
+         document is lost — the labelled set covers 18 sections and neither T
+         nor U is among them — but the accuracies are 19-way and so not
+         comparable to the paper's 21-way figures, which is why the control is
+         re-run inside the study.
       3. **Code 50 errors blind** — the coding tool is in your Downloads.
 
       Each gets its own preregistration; none of it is written back into the

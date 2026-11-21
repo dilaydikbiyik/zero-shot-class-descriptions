@@ -113,6 +113,21 @@ def family() -> List[Dict]:
         add("Descriptions", "NACE, bge-m3 encoder: terse German vs. terse original",
             bge["language_effect"], bge["n"], sign=-1)
 
+    # The externally authored control. Its three headline comparisons enter the
+    # same family as everything else: a test is not exempt from the correction
+    # because the arm it tests was written outside the project.
+    official = load("official_nace")
+    if official:
+        conditions = official["conditions"]
+        for arm in ("the official note, verbatim", "the official note, first sentence"):
+            add("Descriptions", f"NACE: {arm} vs. terse German",
+                conditions[arm]["mcnemar_vs_control"], official["n"], sign=-1)
+        add("Descriptions", "NACE: the assistant's definitions vs. the official note",
+            conditions["the official note, verbatim"]["mcnemar_vs_assistant"], official["n"])
+        add("Descriptions", "NACE: the official note vs. its first sentence",
+            conditions["the official note, first sentence"]["mcnemar_vs_official_full"],
+            official["n"])
+
     for s in load("baselines")["systems"]:
         if s["key"] in {"tfidf-nace", "embed-zeroshot"}:
             add("System", f"full system vs. {s['label']}", s["mcnemar_vs_full"], s["sector"]["n"])
@@ -202,6 +217,11 @@ def correlations() -> List[Dict]:
         out.append({"group": "Correlation",
                     "label": "second German set, alignment vs. headroom, per class",
                     "p": extended["per_class"]["p"]})
+    official = load("official_nace")
+    if official:
+        out.append({"group": "Correlation",
+                    "label": "official NACE notes, alignment vs. headroom, per class",
+                    "p": official["per_class"]["p"]})
     labelfree = load("labelfree_predictor")
     if labelfree:
         out.append({"group": "Correlation",

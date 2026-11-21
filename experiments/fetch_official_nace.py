@@ -21,10 +21,18 @@ Two arms are written, because the official notes differ from this project's
 descriptions in two ways at once and only one of them is the question:
 
 * ``official_full`` — the note verbatim. Externally authored, but also far
-  longer: a median of 68 words against this project's 20 to 40, and 670 for
-  section C. Authorship and length both move.
-* ``official_first_sentence`` — the note's first sentence. Roughly the length
-  of this project's descriptions, so what is left varying is who wrote it.
+  longer: over the nineteen sections that carry one, a median of 78 words
+  against this project's 14, and 670 for section C. Authorship and length both
+  move.
+* ``official_first_sentence`` — the note's first sentence, a median of 19
+  words, which is inside this project's own band of 6 to 25. The match is close
+  at the median and imperfect in the tail: six sections keep a first sentence
+  longer than this project's longest description, the worst being L at 48
+  words. The arm narrows the length gap from nearly sixfold to within seven
+  words of this project's own descriptions rather than closing it, and what the
+  two arms buy is the comparison between them — a length reading of any effect
+  has to predict that arms differing nearly sixfold in length behave
+  differently.
 
 Two sections, T and U, carry no explanatory note at all. They are recorded as
 missing rather than filled with the title, because quietly substituting the
