@@ -735,6 +735,79 @@ def description_source_macros(source: Dict) -> List[str]:
     return lines
 
 
+OFFICIAL_ROWS = (
+    ("terse German name", "Control", r"Terse German name"),
+    ("definitions by the assistant", "Assistant", r"Definitions, the assistant's"),
+    ("the official note, verbatim", "Full", r"Official note, verbatim"),
+    ("the official note, first sentence", "Sentence", r"\quad its first sentence only"),
+)
+
+
+def official_nace_table(official: Dict) -> str:
+    """The same comparison against class texts the statistical office wrote."""
+    rows = []
+    for key, _, label in OFFICIAL_ROWS:
+        c = official["conditions"][key]
+        change = official["mean_alignment_change"].get(key)
+        rows.append(" & ".join([
+            label, pct(c["top1_accuracy"]), pct(c["top3_accuracy"]),
+            "%.0f" % c["mean_words_per_class"],
+            "--" if change is None else "%+.3f" % change,
+            "--" if "mcnemar_vs_control" not in c else p_cell(c["mcnemar_vs_control"]["p_value"]),
+        ]) + r" \\")
+    return "\n".join([
+        PREAMBLE, r"\begin{table*}[t]", r"\centering", r"\footnotesize",
+        r"\setlength{\tabcolsep}{4pt}",
+        r"\begin{tabular}{@{}lrrrrr@{}}", r"\toprule",
+        r"Class text & Top-1 & Top-3 & Words & $\Delta a$ & $p$ \\",
+        r"\midrule", *rows, r"\bottomrule", r"\end{tabular}",
+        r"\caption{Class texts written by the statistical office, not by us: the explanatory notes "
+        r"of WZ 2008, the German implementation of NACE Rev.\ 2, published in 2008. The same "
+        r"\NEVAL\ documents and the same encoder. Two sections carry no official note, so all four "
+        r"arms here classify over the remaining \OfficialClasses, which no document is labelled "
+        r"outside of; the accuracies are therefore not comparable with the \NSections-way figures "
+        r"elsewhere, and the control is re-run here for that reason. Words is the mean length of a "
+        r"class text; $\Delta a$ its mean alignment change against the control, measured before "
+        r"the prediction was registered; $p$ an exact McNemar test against the control, "
+        r"uncorrected. Top-1 and Top-3 are percentages.}",
+        r"\label{tab:official}", r"\end{table*}", "",
+    ])
+
+
+def official_nace_macros(official: Dict) -> List[str]:
+    lines = [
+        r"\newcommand{\OfficialClasses}{%d}" % official["label_space"]["n_classes"],
+        r"\newcommand{\OfficialDropped}{%s}" % ", ".join(official["label_space"]["dropped"]),
+        r"\newcommand{\OfficialRho}{%+.3f}" % official["per_class"]["rho"],
+        r"\newcommand{\OfficialRhoPStat}{%s}" % p_stat(official["per_class"]["p"]),
+        r"\newcommand{\OfficialHeld}{%d}" % sum(1 for o in official["outcomes"] if o["held"]),
+        r"\newcommand{\OfficialPredictions}{%d}" % len(official["outcomes"]),
+    ]
+    for key, stem, _ in OFFICIAL_ROWS:
+        c = official["conditions"][key]
+        lines += [
+            r"\newcommand{\Official%sTopOne}{%s\%%}" % (stem, pct(c["top1_accuracy"])),
+            r"\newcommand{\Official%sTopThree}{%s\%%}" % (stem, pct(c["top3_accuracy"])),
+            r"\newcommand{\Official%sWords}{%.0f}" % (stem, c["mean_words_per_class"]),
+        ]
+        if "gain_pp" in c:
+            lines += [
+                r"\newcommand{\Official%sGain}{%+.1f}" % (stem, c["gain_pp"]),
+                r"\newcommand{\Official%sPStat}{%s}" % (stem,
+                                                        p_stat(c["mcnemar_vs_control"]["p_value"])),
+                r"\newcommand{\Official%sAlign}{%+.3f}" % (stem,
+                                                           official["mean_alignment_change"][key]),
+            ]
+    full = official["conditions"]["the official note, verbatim"]
+    assistant = official["conditions"]["definitions by the assistant"]
+    return lines + [
+        r"\newcommand{\OfficialAssistantOverFull}{%+.1f}"
+        % (100 * (assistant["top1_accuracy"] - full["top1_accuracy"])),
+        r"\newcommand{\OfficialAssistantOverFullPStat}{%s}"
+        % p_stat(full["mcnemar_vs_assistant"]["p_value"]),
+    ]
+
+
 def arxiv_table(arxiv: Dict) -> str:
     """The corpus with author-assigned labels and arXiv's own class descriptions."""
     rows = []
@@ -1355,6 +1428,9 @@ def main() -> int:
     source = load_optional("description_source")
     if source:
         derived += description_source_macros(source)
+    official = load_optional("official_nace")
+    if official:
+        derived += official_nace_macros(official)
     brown = load_optional("brown")
     if brown:
         derived += brown_macros(brown)
@@ -1441,6 +1517,7 @@ def main() -> int:
         **({"effects.tex": effects_table(effects)} if effects else {}),
         **({"references.tex": references_table(refs)} if refs else {}),
         **({"source.tex": description_source_table(source)} if source else {}),
+        **({"official.tex": official_nace_table(official)} if official else {}),
         **({"brown.tex": brown_table(brown)} if brown else {}),
         **({"arxiv.tex": arxiv_table(arxiv)} if arxiv else {}),
         **({"cost.tex": benchmark_table(bench, baselines, ablation, refs, llm)} if bench and refs else {}),

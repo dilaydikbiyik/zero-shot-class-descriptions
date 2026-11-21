@@ -1,8 +1,8 @@
 {
   "alpha": 0.05,
-  "n_tests": 72,
-  "nominally_significant": 45,
-  "significant_after_holm": 32,
+  "n_tests": 77,
+  "nominally_significant": 47,
+  "significant_after_holm": 33,
   "lost_to_correction": [
     "Brown: definitions vs. readable names",
     "second German set: terse German vs. terse original",
@@ -15,6 +15,7 @@
     "Reuters: terse, LaBSE + update vs. terse, LaBSE",
     "20NG: contrastive margin vs. best fixed policy",
     "alignment change vs. headroom captured",
+    "label-free update (definitions), per class",
     "label-free update (terse, LaBSE), per class",
     "Brown, alignment vs. headroom, per class"
   ],
@@ -32,7 +33,7 @@
         20.735785953177256,
         32.78428093645473
       ],
-      "p_holm": 2.8455269720374873e-13
+      "p_holm": 3.064413662194217e-13
     },
     {
       "group": "Descriptions",
@@ -62,7 +63,7 @@
         8.02675585284281,
         19.39799331103679
       ],
-      "p_holm": 0.0005102231840628256
+      "p_holm": 0.0005494711212984276
     },
     {
       "group": "Descriptions",
@@ -77,7 +78,7 @@
         9.03010033444816,
         23.076923076923077
       ],
-      "p_holm": 0.0009920475768529094
+      "p_holm": 0.0010698552299394121
     },
     {
       "group": "Descriptions",
@@ -107,7 +108,7 @@
         8.0,
         12.1
       ],
-      "p_holm": 5.0935289713437805e-20
+      "p_holm": 5.473643073682868e-20
     },
     {
       "group": "Descriptions",
@@ -122,7 +123,7 @@
         2.18978102189781,
         7.507820646506778
       ],
-      "p_holm": 0.02235601875552666
+      "p_holm": 0.02443564840720356
     },
     {
       "group": "Descriptions",
@@ -137,7 +138,7 @@
         14.911366006256518,
         22.10636079249218
       ],
-      "p_holm": 7.208190361524665e-21
+      "p_holm": 7.738204358695595e-21
     },
     {
       "group": "Descriptions",
@@ -197,7 +198,7 @@
         8.0,
         12.1
       ],
-      "p_holm": 5.0935289713437805e-20
+      "p_holm": 5.473643073682868e-20
     },
     {
       "group": "Descriptions",
@@ -227,7 +228,7 @@
         11.3,
         15.55
       ],
-      "p_holm": 2.771820918649478e-31
+      "p_holm": 2.967019574892399e-31
     },
     {
       "group": "Descriptions",
@@ -242,7 +243,7 @@
         14.833333333333334,
         20.583333333333332
       ],
-      "p_holm": 7.574494127893391e-30
+      "p_holm": 8.123370513972622e-30
     },
     {
       "group": "Descriptions",
@@ -302,7 +303,7 @@
         11.37123745819398,
         24.414715719063544
       ],
-      "p_holm": 2.698569631990984e-05
+      "p_holm": 2.8948292415903284e-05
     },
     {
       "group": "Descriptions",
@@ -317,7 +318,67 @@
         1.3377926421404682,
         8.361204013377927
       ],
-      "p_holm": 0.4263923466205597
+      "p_holm": 0.4640152007341385
+    },
+    {
+      "group": "Descriptions",
+      "label": "NACE: the official note, verbatim vs. terse German",
+      "n": 299,
+      "sign": -1,
+      "a_only": 27,
+      "b_only": 42,
+      "p": 0.09118649056701154,
+      "gain_pp": 5.016722408026756,
+      "ci95": [
+        -0.33444816053511706,
+        10.367892976588628
+      ],
+      "p_holm": 1.0
+    },
+    {
+      "group": "Descriptions",
+      "label": "NACE: the official note, first sentence vs. terse German",
+      "n": 299,
+      "sign": -1,
+      "a_only": 29,
+      "b_only": 37,
+      "p": 0.3890524605477928,
+      "gain_pp": 2.6755852842809364,
+      "ci95": [
+        -2.6755852842809364,
+        8.02675585284281
+      ],
+      "p_holm": 1.0
+    },
+    {
+      "group": "Descriptions",
+      "label": "NACE: the assistant's definitions vs. the official note",
+      "n": 299,
+      "sign": 1,
+      "a_only": 82,
+      "b_only": 18,
+      "p": 6.147806615047975e-11,
+      "gain_pp": 21.40468227424749,
+      "ci95": [
+        15.384615384615385,
+        27.4247491638796
+      ],
+      "p_holm": 4.119030432082143e-09
+    },
+    {
+      "group": "Descriptions",
+      "label": "NACE: the official note vs. its first sentence",
+      "n": 299,
+      "sign": 1,
+      "a_only": 22,
+      "b_only": 15,
+      "p": 0.3240086000878364,
+      "gain_pp": 2.3411371237458196,
+      "ci95": [
+        -1.6722408026755853,
+        6.354515050167224
+      ],
+      "p_holm": 1.0
     },
     {
       "group": "System",
@@ -377,7 +438,7 @@
         3.3444816053511706,
         13.377926421404682
       ],
-      "p_holm": 0.07472404123901004
+      "p_holm": 0.0803283443319358
     },
     {
       "group": "Ablation",
@@ -422,7 +483,7 @@
         12.040133779264215,
         23.745819397993312
       ],
-      "p_holm": 1.6936840286434444e-06
+      "p_holm": 1.8104898237223026e-06
     },
     {
       "group": "Ablation",
@@ -437,7 +498,7 @@
         5.016722408026756,
         16.387959866220736
       ],
-      "p_holm": 0.02245830263578353
+      "p_holm": 0.024597188601096245
     },
     {
       "group": "Ablation",
@@ -452,7 +513,7 @@
         5.016722408026756,
         15.719063545150501
       ],
-      "p_holm": 0.01671030521722423
+      "p_holm": 0.018195665680977493
     },
     {
       "group": "Ablation",
@@ -497,7 +558,7 @@
         3.3444816053511706,
         16.05351170568562
       ],
-      "p_holm": 0.13798340585552016
+      "p_holm": 0.14948202301014682
     },
     {
       "group": "LLM",
@@ -527,7 +588,7 @@
         20.066889632107024,
         34.11371237458194
       ],
-      "p_holm": 3.6762901496339256e-10
+      "p_holm": 3.9680592091286817e-10
     },
     {
       "group": "LLM",
@@ -542,7 +603,7 @@
         9.698996655518394,
         23.076923076923077
       ],
-      "p_holm": 0.00019880817796319856
+      "p_holm": 0.00021353470966417625
     },
     {
       "group": "Verified labels",
@@ -557,7 +618,7 @@
         12.0,
         44.0
       ],
-      "p_holm": 0.10049629211425781
+      "p_holm": 0.10822677612304688
     },
     {
       "group": "Descriptions",
@@ -587,7 +648,7 @@
         15.050167224080267,
         27.759197324414714
       ],
-      "p_holm": 2.4328287581389462e-08
+      "p_holm": 2.5923585127710083e-08
     },
     {
       "group": "Reference",
@@ -632,7 +693,7 @@
         8.695652173913043,
         22.74247491638796
       ],
-      "p_holm": 0.0015570290917265909
+      "p_holm": 0.0016841335073777412
     },
     {
       "group": "Reference",
@@ -647,7 +708,7 @@
         17.05685618729097,
         31.103678929765888
       ],
-      "p_holm": 2.655758363087462e-08
+      "p_holm": 2.8328089206266263e-08
     },
     {
       "group": "Reference",
@@ -677,7 +738,7 @@
         11.37123745819398,
         23.411371237458194
       ],
-      "p_holm": 5.286320361346057e-06
+      "p_holm": 5.663914672870776e-06
     },
     {
       "group": "Label-free update",
@@ -707,7 +768,7 @@
         1.45,
         3.65
       ],
-      "p_holm": 0.0003696042254995916
+      "p_holm": 0.00039749888402786267
     },
     {
       "group": "Label-free update",
@@ -722,7 +783,7 @@
         5.005213764337852,
         8.86339937434828
       ],
-      "p_holm": 1.3568793906997338e-10
+      "p_holm": 1.4628855930981507e-10
     },
     {
       "group": "Label-free update",
@@ -752,7 +813,7 @@
         1.05,
         3.45
       ],
-      "p_holm": 0.019683290767962974
+      "p_holm": 0.02147268083777779
     },
     {
       "group": "Label-free update",
@@ -767,7 +828,7 @@
         4.483837330552659,
         8.342022940563087
       ],
-      "p_holm": 5.970461713509171e-09
+      "p_holm": 6.355652791800085e-09
     },
     {
       "group": "Label-free update",
@@ -797,7 +858,7 @@
         0.65,
         2.9
       ],
-      "p_holm": 0.11282511325548111
+      "p_holm": 0.12197309541133093
     },
     {
       "group": "Label-free update",
@@ -812,7 +873,7 @@
         2.18978102189781,
         5.735140771637122
       ],
-      "p_holm": 0.0009920475768529094
+      "p_holm": 0.0010698552299394121
     },
     {
       "group": "Label-free update",
@@ -842,7 +903,7 @@
         7.85,
         10.95
       ],
-      "p_holm": 6.60213909339221e-30
+      "p_holm": 7.073720457205939e-30
     },
     {
       "group": "Label-free update",
@@ -857,7 +918,7 @@
         -5.526590198123045,
         -0.5213764337851929
       ],
-      "p_holm": 0.7985299987482988
+      "p_holm": 0.871123634998144
     },
     {
       "group": "Selection rule",
@@ -892,7 +953,7 @@
       "label": "20NG: contrastive margin vs. best fixed policy",
       "gain_pp": -3.6250000000000004,
       "p": 0.005077381119448144,
-      "p_holm": 0.17770833918068504
+      "p_holm": 0.19294048253902946
     },
     {
       "group": "Selection rule",
@@ -905,31 +966,31 @@
       "group": "Correlation",
       "label": "alignment change vs. headroom captured",
       "p": 0.0026956919937634414,
-      "p_holm": 0.10243629576301078
+      "p_holm": 0.1105233717443011
     },
     {
       "group": "Correlation",
       "label": "label-free update (terse), per class",
       "p": 0.0001577372132819086,
-      "p_holm": 0.007413649024249704
+      "p_holm": 0.008044597877377338
     },
     {
       "group": "Correlation",
       "label": "label-free update (definitions), per class",
       "p": 0.0011800465066095585,
-      "p_holm": 0.0483819067709919
+      "p_holm": 0.051922046290820575
     },
     {
       "group": "Correlation",
       "label": "label-free update (terse, mpnet), per class",
       "p": 5.413140480699619e-05,
-      "p_holm": 0.002598307430735817
+      "p_holm": 0.002814833049963802
     },
     {
       "group": "Correlation",
       "label": "label-free update (terse, LaBSE), per class",
       "p": 0.028818115920476253,
-      "p_holm": 0.9221797094552401
+      "p_holm": 1.0
     },
     {
       "group": "Correlation",
@@ -947,19 +1008,25 @@
       "group": "Correlation",
       "label": "arXiv, alignment vs. headroom, per class",
       "p": 6.15720033629076e-08,
-      "p_holm": 3.509604191685733e-06
+      "p_holm": 3.7558922051373637e-06
     },
     {
       "group": "Correlation",
       "label": "second German set, alignment vs. headroom, per class",
       "p": 0.00025159634151299885,
-      "p_holm": 0.011573431709597947
+      "p_holm": 0.012579817075649943
+    },
+    {
+      "group": "Correlation",
+      "label": "official NACE notes, alignment vs. headroom, per class",
+      "p": 0.0008840906914973482,
+      "p_holm": 0.039784081117380674
     },
     {
       "group": "Correlation",
       "label": "label-free estimate vs. headroom, per class, five corpora",
       "p": 6.44804398204525e-10,
-      "p_holm": 3.8043459494066975e-08
+      "p_holm": 4.062267708688508e-08
     }
   ]
 }

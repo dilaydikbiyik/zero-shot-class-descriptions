@@ -72,26 +72,26 @@
 \newcommand{\ReproduceMinutes}{6}
 \newcommand{\ReproduceCPU}{Apple M5 Pro}
 \newcommand{\ReproduceCores}{18}
-\newcommand{\HolmAlignStat}{$p_{\mathrm{Holm}} = 0.102$}
-\newcommand{\HolmRocchioRhoStat}{$p_{\mathrm{Holm}} = 0.007$}
-\newcommand{\HolmLLMTopThreeStat}{$p_{\mathrm{Holm}} = 0.138$}
+\newcommand{\HolmAlignStat}{$p_{\mathrm{Holm}} = 0.111$}
+\newcommand{\HolmRocchioRhoStat}{$p_{\mathrm{Holm}} = 0.008$}
+\newcommand{\HolmLLMTopThreeStat}{$p_{\mathrm{Holm}} = 0.149$}
 \newcommand{\HolmTfidfStat}{$p_{\mathrm{Holm}} = 1.000$}
-\newcommand{\HolmVerifiedStat}{$p_{\mathrm{Holm}} = 0.100$}
-\newcommand{\HolmContrastiveStat}{$p_{\mathrm{Holm}} = 0.178$}
-\newcommand{\HolmMpnetNewsStat}{$p_{\mathrm{Holm}} = 0.113$}
+\newcommand{\HolmVerifiedStat}{$p_{\mathrm{Holm}} = 0.108$}
+\newcommand{\HolmContrastiveStat}{$p_{\mathrm{Holm}} = 0.193$}
+\newcommand{\HolmMpnetNewsStat}{$p_{\mathrm{Holm}} = 0.122$}
 \newcommand{\HolmBrownDefStat}{$p_{\mathrm{Holm}} = 1.000$}
 \newcommand{\HolmBrownRhoStat}{$p_{\mathrm{Holm}} = 1.000$}
 \newcommand{\HolmArxivRhoStat}{$p_{\mathrm{Holm}} < 0.001$}
 \newcommand{\HolmArxivDescStat}{$p_{\mathrm{Holm}} = 1.000$}
 \newcommand{\HolmEstimateRhoStat}{$p_{\mathrm{Holm}} < 0.001$}
 \newcommand{\HolmExtendedContentStat}{$p_{\mathrm{Holm}} < 0.001$}
-\newcommand{\HolmExtendedRhoStat}{$p_{\mathrm{Holm}} = 0.012$}
-\newcommand{\HolmLabseReutersStat}{$p_{\mathrm{Holm}} = 0.799$}
-\newcommand{\HolmLabseRhoStat}{$p_{\mathrm{Holm}} = 0.922$}
-\newcommand{\EffectTests}{72}
-\newcommand{\EffectNominal}{45}
-\newcommand{\EffectHolm}{32}
-\newcommand{\EffectLostList}{Brown: definitions vs. readable names; second German set: terse German vs. terse original; NACE, bge-m3 encoder: terse German vs. terse original; full system vs. TF-IDF $\rightarrow$ nearest NACE section; full system vs. $-$ description in sector vector; full system vs. LLM, Top-3; full system vs. previous taxonomy; 20NG: terse, mpnet + update vs. terse, mpnet; Reuters: terse, LaBSE + update vs. terse, LaBSE; 20NG: contrastive margin vs. best fixed policy; alignment change vs. headroom captured; label-free update (terse, LaBSE), per class; Brown, alignment vs. headroom, per class}
+\newcommand{\HolmExtendedRhoStat}{$p_{\mathrm{Holm}} = 0.013$}
+\newcommand{\HolmLabseReutersStat}{$p_{\mathrm{Holm}} = 0.871$}
+\newcommand{\HolmLabseRhoStat}{$p_{\mathrm{Holm}} = 1.000$}
+\newcommand{\EffectTests}{77}
+\newcommand{\EffectNominal}{47}
+\newcommand{\EffectHolm}{33}
+\newcommand{\EffectLostList}{Brown: definitions vs. readable names; second German set: terse German vs. terse original; NACE, bge-m3 encoder: terse German vs. terse original; full system vs. TF-IDF $\rightarrow$ nearest NACE section; full system vs. $-$ description in sector vector; full system vs. LLM, Top-3; full system vs. previous taxonomy; 20NG: terse, mpnet + update vs. terse, mpnet; Reuters: terse, LaBSE + update vs. terse, LaBSE; 20NG: contrastive margin vs. best fixed policy; alignment change vs. headroom captured; label-free update (definitions), per class; label-free update (terse, LaBSE), per class; Brown, alignment vs. headroom, per class}
 \newcommand{\RocchioK}{25}
 \newcommand{\RocchioHeld}{5}
 \newcommand{\RocchioPredictions}{5}
@@ -195,6 +195,35 @@
 \newcommand{\SourceAssistantOverWriter}{+21.4}
 \newcommand{\SourceAssistantOverWriterPStat}{$p < 0.001$}
 \newcommand{\SourceWriterShare}{20\%}
+\newcommand{\OfficialClasses}{19}
+\newcommand{\OfficialDropped}{T, U}
+\newcommand{\OfficialRho}{+0.730}
+\newcommand{\OfficialRhoPStat}{$p < 0.001$}
+\newcommand{\OfficialHeld}{4}
+\newcommand{\OfficialPredictions}{6}
+\newcommand{\OfficialControlTopOne}{26.8\%}
+\newcommand{\OfficialControlTopThree}{62.2\%}
+\newcommand{\OfficialControlWords}{10}
+\newcommand{\OfficialAssistantTopOne}{53.2\%}
+\newcommand{\OfficialAssistantTopThree}{82.6\%}
+\newcommand{\OfficialAssistantWords}{19}
+\newcommand{\OfficialAssistantGain}{+26.4}
+\newcommand{\OfficialAssistantPStat}{$p < 0.001$}
+\newcommand{\OfficialAssistantAlign}{+0.080}
+\newcommand{\OfficialFullTopOne}{31.8\%}
+\newcommand{\OfficialFullTopThree}{56.5\%}
+\newcommand{\OfficialFullWords}{147}
+\newcommand{\OfficialFullGain}{+5.0}
+\newcommand{\OfficialFullPStat}{$p = 0.091$}
+\newcommand{\OfficialFullAlign}{+0.021}
+\newcommand{\OfficialSentenceTopOne}{29.4\%}
+\newcommand{\OfficialSentenceTopThree}{56.9\%}
+\newcommand{\OfficialSentenceWords}{26}
+\newcommand{\OfficialSentenceGain}{+2.7}
+\newcommand{\OfficialSentencePStat}{$p = 0.389$}
+\newcommand{\OfficialSentenceAlign}{-0.005}
+\newcommand{\OfficialAssistantOverFull}{+21.4}
+\newcommand{\OfficialAssistantOverFullPStat}{$p < 0.001$}
 \newcommand{\BrownN}{413}
 \newcommand{\BrownClasses}{15}
 \newcommand{\BrownTruncate}{1200}
@@ -282,10 +311,10 @@
 \newcommand{\SynthNeighbourLoss}{-0.012}
 \newcommand{\SynthOtherChange}{+0.001}
 \newcommand{\SynthNarrowOwnGain}{+0.025}
-\newcommand{\RegisteredStudies}{nine}
-\newcommand{\RegisteredPredictions}{40}
-\newcommand{\RegisteredHeld}{33}
-\newcommand{\RegisteredFailed}{seven}
+\newcommand{\RegisteredStudies}{ten}
+\newcommand{\RegisteredPredictions}{46}
+\newcommand{\RegisteredHeld}{37}
+\newcommand{\RegisteredFailed}{nine}
 \newcommand{\PriorityCorpora}{NACE, Reuters, Brown}
 \newcommand{\PriorityExcluded}{20NG, arXiv}
 \newcommand{\PriorityMinGain}{2}

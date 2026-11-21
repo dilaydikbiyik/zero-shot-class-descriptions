@@ -627,6 +627,39 @@ it shares a bias with the labeller, and this experiment separates neither; what
 it rules out is that the effect holds only for text from the labeller's own
 family.
 
+A sharper version of the objection remains: every arm above was written for
+this study. The control for that is a class text written outside it altogether,
+and NACE has one -- the explanatory notes of WZ 2008, the German implementation
+of the classification, published by the national statistical office in 2008 for
+the registrars whose filings these documents are. The notes enter twice, because
+a single external arm would vary authorship and length together: verbatim, at
+\OfficialFullWords\ words per class against the assistant's
+\OfficialAssistantWords, and cut to their first sentence, at
+\OfficialSentenceWords. Predictions were again registered from the alignment
+changes first, and \OfficialHeld\ of \OfficialPredictions\ held; the two that
+failed did so in the direction the registration argued against, which is
+reported in full below.
+
+The result does not vindicate the external text. Verbatim it gains
+\OfficialFullGain~points over the terse control and its first sentence
+\OfficialSentenceGain, neither significant (\OfficialFullPStat,
+\OfficialSentencePStat), and both lose Top-3 against the control
+(\OfficialFullTopThree\ and \OfficialSentenceTopThree\ against
+\OfficialControlTopThree). The definitions written here beat the official note
+by \OfficialAssistantOverFull~points (\OfficialAssistantOverFullPStat) in a
+seventh of the words. Per class, the alignment change still predicts the share
+of headroom captured ($\rho = \OfficialRho$, \OfficialRhoPStat), which is the
+account holding where the arm does not: the official notes raise alignment
+least (\OfficialFullAlign\ against \OfficialAssistantAlign) and gain least.
+Authority is not what a class text needs. The notes are written to delimit an
+industry against its neighbours, enumerating what belongs and what does not,
+while these documents state what a firm does; a text aimed at the one is not
+aimed at the other. This strengthens rather than answers the authorship
+question -- our descriptions are better than the official ones, and why is
+Section~\ref{sec:source}'s open problem -- but it bounds the alternative: a
+practitioner cannot expect the gain from pasting in the classification's own
+notes (Appendix~\ref{app:official}).
+
 \subsection{An instruction-tuned model asked directly}
 \label{sec:llm}
 
@@ -961,5 +994,29 @@ that produced them, the unedited replies and the rules that strip the model's
 shared framing are released with the code.
 
 \input{tables/source}
+
+\section{The Classification's Own Notes}
+\label{app:official}
+
+Table~\ref{tab:official} is the full result of the external control in
+Section~\ref{sec:source}. Two sections, \OfficialDropped, carry no explanatory
+note. They are recorded as missing rather than filled from their titles, since
+a substituted title would make the official arms partly terse arms, and they
+are dropped from the label space of all four arms: an argmax over
+\OfficialClasses\ classes is an easier problem than over \NSections, and the
+arms have to face the same one. No document is lost, as none is labelled with
+either section, but every accuracy in the table is therefore
+\OfficialClasses-way and the control is re-run inside the study for that
+reason.
+
+Two of the six registered predictions failed, and both failed in the paper's
+favour. The alignment changes said the first sentence would lower accuracy and
+that the two official arms would diverge -- the pattern expected if length
+rather than authorship were doing the work. Both arms in fact gained, so the
+registration predicted against the result it got, and the length reading is the
+one the data declines. The notes, the fetch script and the preregistration are
+released with the code.
+
+\input{tables/official}
 
 \end{document}
