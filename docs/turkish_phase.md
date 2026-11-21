@@ -100,17 +100,22 @@ readable-names contrast, not the language cross.
 
 ## The class texts
 
-Four arms, so that language and authorship are not confounded with each other:
+Five arms, so that language and authorship are not confounded with each other:
 
 1. **identifier** — the class name as the dataset ships it, in English.
 2. **terse Turkish** — the same name in Turkish, nothing added.
 3. **definition, assistant** — a Turkish definition written by the same
    assistant pipeline used for the main study, for comparability with
    `run_description_source.py`.
-4. **definition, native speaker** — a Turkish definition written by the author,
+4. **definition, assistant, English** — the same assistant's definition in
+   English. Without this the language cross of P5 could only be tested at the
+   terse level, which is not the 2x2 `run_language_match.py` ran. It is absent
+   for TTC-4900, which has no English parallel: an arm that could never be
+   crossed is left empty rather than written and unused.
+5. **definition, native speaker** — a Turkish definition written by the author,
    who is a native speaker.
 
-Arm 4 is new to this project. `run_description_source.py` compares a terse
+Arm 5 is new to this project. `run_description_source.py` compares a terse
 control, the assistant and an independent 7B model; none of those is a human
 writing in their own language. It is an addition to that comparison, not a
 replacement for any arm of it, and it must be written **before** any accuracy is
@@ -161,6 +166,27 @@ P6 is the one most likely to fail, and it is registered because of that. If a
 native speaker writes a much better class text than the assistant does, the
 paper's main effect is partly an artefact of who was available to write, and
 that is worth knowing.
+
+## What was seen before registration, and when
+
+The measurement code was written before the alignment of the full corpora was
+measured, so the family of tests was fixed while every quantity in it was still
+unknown. That ordering is deliberate: written afterwards, the choice of which
+comparisons enter the family could have been made knowing which ones would pay.
+
+The code was then exercised end to end on a slice of eight documents per class,
+because code that has never run is not code. That run produced accuracy numbers,
+and they were seen. They are not results and none of them is reported anywhere:
+the slice is a few per cent of each corpus and its intervals span the effects it
+is measuring. It is recorded here because this project does not keep that kind
+of thing quiet, and because a reader is entitled to know the order things
+happened in.
+
+What protects the study is not that nothing was seen. It is that the predictions
+are not authored: `predictions_from` reads each direction off a measured
+alignment change, so there is no step at which a prediction could be chosen to
+match an accuracy. The family was fixed before the slice ran, and nothing in it
+was changed afterwards.
 
 ## What would falsify the account here
 

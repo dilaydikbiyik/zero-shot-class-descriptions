@@ -50,6 +50,19 @@ class TestClassTexts:
     def test_ttc_keys_match_the_dataset_card(self):
         assert set(CLASSES["ttc4900"]) == set(fetch_turkish.TTC_CATEGORIES.values())
 
+    def test_english_definitions_exist_where_they_can_be_crossed(self):
+        """The language cross of P5 needs an English definition, not just the identifier."""
+        for corpus in ("massive_intent", "massive_scenario"):
+            missing = [
+                k for k, v in CLASSES[corpus].items() if not v.get("definition_assistant_en")
+            ]
+            assert not missing, f"{corpus}: English definition missing for {missing}"
+
+    def test_ttc_has_no_english_arm_to_cross(self):
+        """TTC-4900 has no parallel locale; an arm that cannot be crossed stays empty."""
+        assert all(not v.get("definition_assistant_en") for v in CLASSES["ttc4900"].values())
+        assert "definition_assistant_en" not in run_turkish.available_arms(CLASSES["ttc4900"])
+
 
 class TestArmSelection:
     def test_an_empty_arm_is_not_offered(self):
@@ -73,6 +86,27 @@ class TestArmSelection:
                   "definition_native_tr": "yazildi"},
         }
         assert "definition_native_tr" in run_turkish.available_arms(entries)
+
+
+class TestLocales:
+    def test_ttc_refuses_a_locale_it_does_not_have(self):
+        with pytest.raises(ValueError, match="Turkish only"):
+            run_turkish.load_corpus("ttc4900", locale="en")
+
+    def test_an_unknown_locale_is_refused(self):
+        with pytest.raises(ValueError, match="unknown locale"):
+            run_turkish.load_corpus("massive_intent", locale="de")
+
+    @pytest.mark.skipif(
+        not run_turkish.MASSIVE_EN_CACHE.exists(), reason="corpora not fetched"
+    )
+    def test_the_two_locales_really_are_parallel(self):
+        """If they are not, English is a second corpus rather than a control."""
+        tr_docs, tr_gold = run_turkish.load_corpus("massive_intent", "tr")
+        en_docs, en_gold = run_turkish.load_corpus("massive_intent", "en")
+        assert len(tr_docs) == len(en_docs)
+        assert tr_gold == en_gold
+        assert tr_docs != en_docs
 
 
 class TestMeanChange:
