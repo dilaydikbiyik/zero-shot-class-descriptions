@@ -1026,12 +1026,12 @@ class TestSubmissionAnonymity:
 
         remove, detect = self._patterns()
         text = ("Ada Lovelace, adalovelace@example.com, "
-                "github.com/adalovelace/keyword-extractor, Marmara University")
+                "github.com/adalovelace/zero-shot-class-descriptions, Marmara University")
         cleaned = anonymize_text(text, remove)
         assert find_identity(cleaned, detect) == []
         # No fragment may survive inside a URL or an address.
         assert "ada" not in cleaned.lower() and "marmara" not in cleaned.lower()
-        assert "github.com/ANONYMOUS/keyword-extractor" in cleaned
+        assert "github.com/ANONYMOUS/zero-shot-class-descriptions" in cleaned
 
     def test_a_surviving_fragment_is_detected(self):
         from experiments.submission import find_identity

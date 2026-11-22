@@ -127,7 +127,10 @@ def draw_frame(rendered: List[Tuple[str, Tuple[int, int, int], bool]], cursor: b
     d.rectangle([0, 0, WIDTH, 34], fill=CHROME)
     for i, colour in enumerate([(255, 95, 86), (255, 189, 46), (39, 201, 63)]):
         d.ellipse([18 + i * 20, 12, 28 + i * 20, 22], fill=colour)
-    d.text((WIDTH // 2 - 90, 10), "keyword-extractor", font=FONT, fill=DIM)
+    # Centred by measurement, not by a constant: the offset that centred
+    # "keyword-extractor" left the longer name sitting off to one side.
+    title = "zero-shot-class-descriptions"
+    d.text(((WIDTH - d.textlength(title, font=FONT)) // 2, 10), title, font=FONT, fill=DIM)
 
     y = PAD_Y
     for text, colour, bold in rendered:

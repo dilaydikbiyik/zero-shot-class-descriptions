@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NACE annotation — keyword-extractor</title>
+<title>NACE annotation — zero-shot-class-descriptions</title>
 <style>
   :root {
     --ground: #f3f4f7; --surface: #fff; --sunk: #eaecf1;
@@ -185,6 +185,11 @@
   var NAME = {};
   SECTIONS.forEach(function (s) { NAME[s[0]] = s[1]; });
 
+  // The storage keys keep the repository's old name on purpose. They are
+  // localStorage keys in whatever browser did the coding, not identifiers of
+  // this project: renaming them would orphan work already saved under the old
+  // key and there is no migration, because the data never leaves the browser.
+  // They stay as they are unless someone first writes that migration.
   var STORE = "keyword-extractor.annotation.v1";
   var rows = [], header = [], index = 0, saveTimer = null, sourceName = "";
   // A verification file carries the existing label in `silver_sector`. In that

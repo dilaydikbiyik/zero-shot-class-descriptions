@@ -468,7 +468,7 @@
     <p class="byline">
       <span>Dilay Dikbıyık</span>
       <span>Kocaeli University, Computer Engineering</span>
-      <span><a href="https://github.com/dilaydikbiyik/keyword-extractor">github.com/dilaydikbiyik/keyword-extractor</a></span>
+      <span><a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions">github.com/dilaydikbiyik/zero-shot-class-descriptions</a></span>
     </p>
   </header>
 
@@ -489,9 +489,9 @@
       <div class="fig-s">the fifth corpus &mdash; entry 14</div>
     </div>
     <div class="fig">
-      <span class="fig-n">33 / 40</span>
+      <span class="fig-n">37 / 46</span>
       <div class="fig-l">Predictions that held, all of them committed before they were measured</div>
-      <div class="fig-s">nine registered studies, six evaluation sets</div>
+      <div class="fig-s">ten registered studies, six evaluation sets</div>
     </div>
     <div class="fig">
       <span class="fig-n">4</span>
@@ -690,7 +690,7 @@
             so elaboration should help, but small, so it should help far less than on NACE.
             It helped by 4.8 points — positive, significant, and an order of magnitude below
             NACE's 26.8, exactly as the size of the alignment change required.
-            <a href="https://github.com/dilaydikbiyik/keyword-extractor/blob/main/experiments/run_reuters.py">The
+            <a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions/blob/main/experiments/run_reuters.py">The
             script prints the prediction before it computes the accuracy</a>, so the order
             cannot be quietly rearranged after the fact.
           </p>
@@ -758,7 +758,7 @@
           </p>
           <p>
             Only the alignment change was measured first. Five predictions followed from it and were
-            <a href="https://github.com/dilaydikbiyik/keyword-extractor/commit/7b677dd">committed</a>
+            <a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions/commit/7b677dd">committed</a>
             before any accuracy existed, with a fingerprint of the method that the accuracy step
             checks. All five held. The risky one was 20 Newsgroups, where written definitions gained
             nothing because they moved its vectors away from its documents; this update moves them
@@ -788,7 +788,7 @@
           <p>
             The same update, unchanged, was applied to the written definitions instead of the terse
             labels. The alignment change was measured first, and five new predictions were
-            <a href="https://github.com/dilaydikbiyik/keyword-extractor/commit/27f6fec">committed</a>
+            <a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions/commit/27f6fec">committed</a>
             before any accuracy existed, under a fingerprint of their own.
           </p>
           <p>
@@ -822,7 +822,7 @@
           <p>
             The first label-free test, unchanged, on paraphrase-multilingual-mpnet-base-v2, a model
             more than twice the size. Five predictions were
-            <a href="https://github.com/dilaydikbiyik/keyword-extractor/commit/abfe83d">committed</a>
+            <a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions/commit/abfe83d">committed</a>
             before any accuracy existed, under a fingerprint of their own.
           </p>
           <p>
@@ -1001,7 +1001,7 @@
             &mdash; and are worth +0.9 (p = 0.061). That near-zero case is the account&rsquo;s least
             obvious prediction and had never been tested. Across the 38 categories with documents the
             per-class relation replicates at <strong>&rho; = +0.749, p = 6&times;10<sup>&minus;8</sup></strong>,
-            and this time it survives correction over all 72 tests &mdash; the claim that was found by
+            and this time it survives correction over all 77 tests &mdash; the claim that was found by
             search on NACE, on labels and text that are nobody&rsquo;s work here.
           </p>
           <div class="evidence">
@@ -1130,7 +1130,7 @@
             <strong>65.3%</strong> on half the documents and 76.0% on a quarter, against 52.5% on all
             of them. None of these four was preregistered &mdash; they are curves over a factor the
             registered studies had already established, and they are reported outside the corrected
-            family for that reason. <a href="https://github.com/dilaydikbiyik/keyword-extractor/blob/main/docs/recipe.md">The recipe</a>
+            family for that reason. <a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions/blob/main/docs/recipe.md">The recipe</a>
             collects them with what they do not license.
           </p>
           <p>
@@ -1208,16 +1208,21 @@
         <!-- trend through the first three corpora, which Brown departs from -->
         <path d="M 127.4 296.3 L 376.1 255.4 L 581.7 51.1" fill="none" stroke="var(--rule-strong)" stroke-width="1.5" stroke-dasharray="5 4"></path>
 
-        <!-- 20NG -->
+        <!-- 20NG. Its dot sits 21px left of Brown's and 41px below it, so a
+             label beside either one runs into the other; this one is lifted
+             into the empty upper-left and given a leader to its dot. -->
         <circle cx="127.4" cy="296.3" r="6" fill="var(--surface)" stroke="var(--ink-2)" stroke-width="2"></circle>
-        <text class="pt-label" x="127.4" y="258" text-anchor="middle">20 Newsgroups</text>
-        <text class="pt-sub" x="127.4" y="273" text-anchor="middle">−0.076 → +0.4 pp</text>
+        <line x1="101" y1="190" x2="124" y2="289" stroke="var(--rule-strong)" stroke-width="1"></line>
+        <text class="pt-label" x="76" y="168">20 Newsgroups</text>
+        <text class="pt-sub" x="76" y="182">−0.076 → +0.4 pp</text>
 
-        <!-- Brown: registered as "no gain", and it gained -->
+        <!-- Brown: registered as "no gain", and it gained. The note is on two
+             lines because one line reaches the Reuters dot at x=370. -->
         <line x1="148.8" y1="255.0" x2="148.8" y2="296.3" stroke="var(--falsified)" stroke-width="1" stroke-dasharray="3 3"></line>
         <circle cx="148.8" cy="255.0" r="6.5" fill="var(--falsified)" stroke="var(--surface)" stroke-width="2"></circle>
         <text class="pt-label" x="165" y="236">Brown</text>
-        <text class="pt-sub" x="165" y="250">−0.067 → +4.8 pp · predicted no gain</text>
+        <text class="pt-sub" x="165" y="250">−0.067 → +4.8 pp</text>
+        <text class="pt-sub" x="165" y="263">predicted no gain</text>
 
         <!-- Reuters -->
         <circle cx="376.1" cy="255.4" r="6.5" fill="var(--predicted)" stroke="var(--surface)" stroke-width="2"></circle>
@@ -1234,7 +1239,7 @@
       Gains are measured against the closest terse control in each corpus: for NACE, the
       literal German rendering of the original terse descriptions; for Reuters, 20 Newsgroups
       and Brown, the readable class name. Brown&rsquo;s gain does not survive correction over
-      the paper&rsquo;s 72 tests, so the failure it records is nominal &mdash; but the
+      the paper&rsquo;s 77 tests, so the failure it records is nominal &mdash; but the
       prediction was that accuracy would not rise at all.
     </p>
   </section>
@@ -1369,7 +1374,7 @@
     </p>
     <footer>
       <span>Every figure regenerated by <code style="font-family: var(--mono);">make reproduce</code> and <code style="font-family: var(--mono);">make study</code></span>
-      <span><a href="https://github.com/dilaydikbiyik/keyword-extractor">Code, data protocol and paper</a></span>
+      <span><a href="https://github.com/dilaydikbiyik/zero-shot-class-descriptions">Code, data protocol and paper</a></span>
       <span>dilaydikbiyik@gmail.com</span>
     </footer>
   </section>

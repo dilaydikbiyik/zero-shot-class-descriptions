@@ -48,7 +48,7 @@ ARCHIVE = "cs"
 PER_CATEGORY = 200
 PAGE = 100
 PAUSE = 3.0          # arXiv asks for one request every three seconds
-USER_AGENT = "keyword-extractor research experiment (one-off corpus sample)"
+USER_AGENT = "zero-shot-class-descriptions research experiment (one-off corpus sample)"
 
 
 def fetch(url: str) -> str:

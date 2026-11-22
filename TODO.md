@@ -247,8 +247,24 @@ it is not reopened without one of those three changing.
          carrying the main effect were written by the author, and the source
          study already shows the effect is corpus knowledge rather than
          authorship.
-         *Done, as far as it can go without the author:* `make
-         official-nace-fetch` fetches the WZ 2008 explanatory notes — the
+         **Done, and the answer is no.** Verbatim the official note gains
+         +5.0 points over the terse control and its first sentence +2.7,
+         neither significant (p = 0.091, p = 0.389), and both lose Top-3
+         against the control. The descriptions written here beat the official
+         note by +21.4 points (p < 0.001) in a seventh of the words. Four of
+         six registered predictions held; the two that failed had predicted the
+         length pattern, and both official arms gained instead. Per class the
+         alignment change still predicts captured headroom (ρ = +0.730,
+         p < 0.001), so the account holds where the arm does not. Reported in
+         §4.4 and its appendix. The Holm family went 72 → 77 tests and
+         `label-free update (definitions), per class` crossed out of
+         significance as a result; that is in `\EffectLostList`, not absorbed.
+         This closes the item without closing the question behind it: our
+         descriptions are better than the statistical office's and the paper
+         does not know why. What it bounds is the alternative — a practitioner
+         pasting in the classification's own notes does not get the gain.
+
+         *How it is built:* `make official-nace-fetch` fetches the WZ 2008 explanatory notes — the
          German implementation of NACE Rev. 2, written by the Statistisches
          Bundesamt in 2008 — into `data/taxonomy/sectors_official.json`, in the
          documents' own language and with attribution.
@@ -276,12 +292,20 @@ it is not reopened without one of those three changing.
       Each gets its own preregistration; none of it is written back into the
       registrations already in `results/`, and `v1-arr-october-2026` stays as
       the record of what was submitted in October.
-- [ ] **Rename the repository to `class-description-effect`** — *after your
-      internship applications resolve*, so no application points at a dead link.
-      When you rename it on GitHub, the seven files that hardcode the old name,
-      `CITATION.cff`, the README badges, the Pages URL and the research page's
-      sentence about the repository keeping its original name all get fixed in
-      one commit.
+- [x] **Renamed to `zero-shot-class-descriptions`**, November 2026. The planned
+      name was `class-description-effect`; this one was chosen instead because
+      it is the version that survives being read as a bare URL on a printed CV,
+      where no repository description is there to explain it.
+      Every URL, the package name, the arXiv user-agent and the demo GIF's
+      title bar moved with it. Two things deliberately did not: the README's
+      note recording the old name, and the three `localStorage` keys in
+      `tools/annotate.html`, which are keys in whatever browser did the coding
+      and would orphan saved annotations if renamed without a migration.
+      **One consequence is permanent:** GitHub redirects the old code URL but
+      not the old Pages URL, so `dilaydikbiyik.github.io/keyword-extractor`
+      printed in any CV sent before the rename is dead. The CV's links now come
+      from a single `\reposlug` macro so the next rename, if there ever is one,
+      is one line.
 
 ## D. Deliberately not doing, and why
 

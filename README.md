@@ -1,13 +1,13 @@
 # Zero-Shot NACE Classification of German Trade Register Texts
 
-[![CI](https://github.com/dilaydikbiyik/keyword-extractor/actions/workflows/ci.yml/badge.svg)](https://github.com/dilaydikbiyik/keyword-extractor/actions/workflows/ci.yml)
+[![CI](https://github.com/dilaydikbiyik/zero-shot-class-descriptions/actions/workflows/ci.yml/badge.svg)](https://github.com/dilaydikbiyik/zero-shot-class-descriptions/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
 
-**[Read the research record →](https://dilaydikbiyik.github.io/keyword-extractor/)**
+**[Read the research record →](https://dilaydikbiyik.github.io/zero-shot-class-descriptions/)**
 One page: every claim this project made and what became of it — a retracted
-headline, two of its own hypotheses falsified, and nine preregistered studies
-whose predictions were committed before they were measured, 33 of 40 of which
+headline, two of its own hypotheses falsified, and ten preregistered studies
+whose predictions were committed before they were measured, 37 of 46 of which
 held — including a corpus that contradicted one of this project's own claims,
 and 7,470 arXiv abstracts where the labels and the class descriptions are
 nobody's work but arXiv's.
@@ -33,7 +33,7 @@ The claim behind it is measured on **12,341 documents across six evaluation sets
 and 108 classes** — German trade-register texts (299 hand-checked, plus a
 second set of 1,200 drawn afterwards), 20 Newsgroups (2,000), Reuters-21578
 (959), Brown (413) and 7,470 arXiv abstracts whose labels their own authors
-assigned — under **72 comparisons corrected together**, with
+assigned — under **77 comparisons corrected together**, with
 every prediction committed to version control before it was measured.
 
 **What this repository is really about:** what a class description buys a
@@ -49,11 +49,13 @@ contributes no measurable benefit at all.
 
 ![Reproducing the reported results end to end](docs/assets/demo.gif)
 
-> **On the name.** The directory is still `keyword-extractor`, from when the
-> project was framed around guided keyword extraction. Three separate
-> measurements have now found that half of the pipeline has no effect, so the
-> framing has moved to what the evidence supports. The directory name is
-> historical.
+> **On the name.** This repository was `keyword-extractor` until November 2026,
+> from when the project was framed around guided keyword extraction. Three
+> separate measurements found that half of that pipeline has no effect, so the
+> name moved to what the evidence supports. The old code URL redirects
+> permanently; the old GitHub Pages URL does not redirect, so a link to
+> `dilaydikbiyik.github.io/keyword-extractor` printed anywhere before that date
+> is dead and the research record now lives at the address above.
 
 ---
 
@@ -74,7 +76,7 @@ produced by `make reproduce` and written to
 | **Ours: taxonomy-guided** | **52.5%** | [46.8, 58.2] | **81.6%** | 0.356 | 0.474 | — |
 | Qwen2.5-7B-Instruct, asked directly | 48.8% | [43.1, 54.5] | 71.9% | 0.359 | 0.430 | 0.416 |
 
-*p* is uncorrected. Corrected with Holm over all 72 comparisons the paper reports
+*p* is uncorrected. Corrected with Holm over all 77 comparisons the paper reports
 ([`results/effect_sizes.json`](results/effect_sizes.json)), 32 of the 45 nominally
 significant ones survive; the TF-IDF difference is not among them, nor is the
 language model's Top-3 gap.
@@ -455,7 +457,7 @@ system in its own process.
 ### Ablation
 
 *p* is uncorrected; removing the description (−8.4 points, p = 0.002) does not
-survive correction over the paper's 72 tests.
+survive correction over the paper's 77 tests.
 
 | Variant | Top-1 | Δ Top-1 | F1-macro | p vs. full |
 | --- | --- | --- | --- | --- |
@@ -522,7 +524,7 @@ it. Bare `python …` commands need `source .venv/bin/activate` first.
 
 ```bash
 make reproduce    # systems, ablations and error analysis
-make study        # description studies, six evaluation sets, four encoders, the nine
+make study        # description studies, six evaluation sets, four encoders, the ten
                   # registered studies, the practical curves (budget, noise, depth,
                   # abstention), the simulation, the sensitivity grid, robustness
 ```
@@ -664,7 +666,7 @@ make test          # or: pytest tests/ -q
 make lint
 ```
 
-214 tests: 124 covering the experiment harness, 90 covering the pipeline. One of
+257 tests: 172 covering the experiment harness, 85 covering the pipeline. One of
 them asserts that the harness's "full system" predicts the same section as the
 shipped `SectorClassifier`, so the ablation table measures the real pipeline
 rather than a lookalike. Another reads every figure the diagnostic quotes out of

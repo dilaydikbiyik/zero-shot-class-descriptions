@@ -9,6 +9,7 @@ Run with: pytest tests/test_reported_numbers.py -v
 
 import json
 import pathlib
+import re
 
 import pytest
 
@@ -139,3 +140,70 @@ def test_paper_hardcodes_no_figures():
         "paper/main.tex hardcodes figures instead of using macros from "
         f"tables/macros.tex: {sorted(set(offenders))}"
     )
+
+
+def holm_family_size() -> int:
+    """How many comparisons the correction runs over, as results/ has it."""
+    return int(load("effect_sizes")["n_tests"])
+
+
+# "77 comparisons" can only ever mean the corrected family. "77 tests" can also
+# mean the test suite, so that spelling is only checked where the sentence is
+# about the correction.
+FAMILY_PATTERNS = (
+    re.compile(r"(\d+)\s+comparisons"),
+    re.compile(r"(\d+)\s+tests"),
+)
+CORRECTION_WORDS = ("holm", "corrected", "correction")
+
+
+@pytest.mark.parametrize("doc", sorted(DOCS))
+def test_the_corrected_family_size_is_current(doc):
+    """The family grows whenever a study is added, and every sentence that
+    quotes its size has to grow with it.
+
+    This is the drift that actually happened: a study was added, the family
+    went from 72 comparisons to 77, and four sentences across three documents
+    went on quoting 72 — one of them 62, from an even earlier run. Nothing
+    caught it, because each sentence was written by hand and no number in it is
+    derived from results/.
+    """
+    expected = holm_family_size()
+    lines = DOCS[doc].read_text(encoding="utf-8").splitlines()
+    wrong = []
+    for i, line in enumerate(lines):
+        context = (lines[i - 1] + " " + line).lower() if i else line.lower()
+        for pattern in FAMILY_PATTERNS:
+            if pattern is FAMILY_PATTERNS[1] and not any(w in context for w in CORRECTION_WORDS):
+                continue
+            for found in pattern.finditer(line):
+                if int(found.group(1)) != expected:
+                    wrong.append((i + 1, found.group(0)))
+    assert not wrong, (
+        f"{doc} quotes a stale size for the corrected family; results/ says "
+        f"{expected} comparisons: {wrong}"
+    )
+
+
+def test_the_readme_quotes_the_real_test_count():
+    """The README states how many tests there are, and that number drifts every
+    time a test is added -- it has already drifted twice. Collection is cheap,
+    so the claim is checked against the suite itself rather than maintained by
+    hand."""
+    import subprocess
+    import sys
+
+    harness = {"test_experiments.py", "test_official_nace.py", "test_turkish.py",
+               "test_reported_numbers.py"}
+    counts = {}
+    for path in sorted((ROOT / "tests").glob("test_*.py")):
+        out = subprocess.run([sys.executable, "-m", "pytest", str(path), "-q", "--collect-only"],
+                             capture_output=True, text=True, cwd=ROOT).stdout
+        found = re.search(r"(\d+) tests? collected", out)
+        counts[path.name] = int(found.group(1)) if found else 0
+    total = sum(counts.values())
+    in_harness = sum(n for name, n in counts.items() if name in harness)
+    claim = (f"{total} tests: {in_harness} covering the experiment harness, "
+             f"{total - in_harness} covering the pipeline.")
+    text = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert claim in text, f"README should say: {claim}"

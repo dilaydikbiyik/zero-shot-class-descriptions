@@ -16,9 +16,10 @@ authors:
 keywords:
   - natural language processing
   - zero-shot classification
-  - keyword extraction
+  - taxonomy classification
+  - class descriptions
   - multilingual embeddings
   - NACE Rev. 2
   - preregistration
 license: MIT
-repository-code: "https://github.com/dilaydikbiyik/keyword-extractor"
+repository-code: "https://github.com/dilaydikbiyik/zero-shot-class-descriptions"
