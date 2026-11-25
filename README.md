@@ -666,7 +666,7 @@ make test          # or: pytest tests/ -q
 make lint
 ```
 
-257 tests: 172 covering the experiment harness, 85 covering the pipeline. One of
+266 tests: 181 covering the experiment harness, 85 covering the pipeline. One of
 them asserts that the harness's "full system" predicts the same section as the
 shipped `SectorClassifier`, so the ablation table measures the real pipeline
 rather than a lookalike. Another reads every figure the diagnostic quotes out of

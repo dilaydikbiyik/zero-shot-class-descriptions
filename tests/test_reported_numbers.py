@@ -194,7 +194,7 @@ def test_the_readme_quotes_the_real_test_count():
     import sys
 
     harness = {"test_experiments.py", "test_official_nace.py", "test_turkish.py",
-               "test_reported_numbers.py"}
+               "test_reported_numbers.py", "test_encoder_mechanism.py"}
     counts = {}
     for path in sorted((ROOT / "tests").glob("test_*.py")):
         out = subprocess.run([sys.executable, "-m", "pytest", str(path), "-q", "--collect-only"],

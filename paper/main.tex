@@ -92,7 +92,7 @@ rather than a modelling decision: comparisons in this setting vary the encoder,
 the scoring function or the calibration and hold the description fixed. We
 measure it instead, and identify the quantity that predicts what it is worth. It
 is a large lever and a cheap one---worth more than swapping the encoder costs
-(Table~\ref{tab:ablation})---on the one family of classifiers studied here.
+(Table~\ref{tab:ablation})---for the classifiers studied here.
 
 What we contribute is not a model but a measurement and the quantity behind
 it: what a class description buys, why it buys it, and how far that can be
@@ -101,8 +101,7 @@ told in advance without labels. In detail:
   \item Rewriting class descriptions from category labels into definitions that
         enumerate concrete activities gains \ContentEffect~points of Top-1
         accuracy on NACE section assignment over the whole evaluation set, and
-        \HeldOutContentEffect\ on the half never inspected while the
-        descriptions were written.
+        \HeldOutContentEffect\ on the half never inspected during writing.
   \item A control separating content from language. Sixteen of twenty-one
         descriptions were in a language none of the documents were written in,
         which is an attractive explanation and the wrong one: the same content
@@ -111,20 +110,20 @@ told in advance without labels. In detail:
         class vector toward the centroid of its own documents
         ($\rho = \AlignRho$), the only candidate of five that holds within
         each corpus separately. Because it was found by search, we rest it on
-        the preregistered test below rather than on its own $p$-value.
+        the preregistered test below, not its own $p$-value.
   \item Prospective tests on three further corpora, each registered before its
         accuracy was computed: a confirmation on Reuters, a failure of the
         corpus-level prediction on Brown, and on \ArxivN\ arXiv abstracts whose
         labels their authors assigned and whose class descriptions arXiv
         publishes---neither our labelling nor our writing---a class text
-        worth \ArxivSpellGain~points and one worth \ArxivDescGain, each as its
-        alignment change implied.
+        worth \ArxivSpellGain~points and one worth \ArxivDescGain, as
+        alignment implied.
   \item Four preregistered, label-free interventions on the class vectors,
         moving each toward its nearest unlabelled documents. The first raises
         accuracy in the order the alignment change predicts, including on the
         corpus where written definitions did not help. Across all four, on three
         encoders, the class-level prediction holds every time and the
-        corpus-level ordering once, which we report as the account's limit.
+        corpus-level ordering once---the account's limit.
   \item A negative result with a measured cause: three per-class selection
         rules fail to beat a fixed policy, because the classifier's argmax
         compares classes on a scale that depends on description style.
@@ -288,8 +287,7 @@ examined. Table~\ref{tab:descriptions} reports all \NEVAL\ documents, the
 developed half included; on the \HeldOutN\ that were not, content is worth
 \HeldOutContentEffect~points (\HeldOutContentPStat) against
 \DevContentEffect\ where it was written, and language
-\HeldOutLanguageEffect. The gain is not an artefact of fitting: it is larger
-where nothing was fitted.
+\HeldOutLanguageEffect: the gain is larger where nothing was fitted.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Experiments}
@@ -459,8 +457,8 @@ captures \LabelledTenth\ of what rewriting everything buys and the best third
 Ranked by the label-free estimate it captures \EstimateTenth\ and
 \EstimateThird, against \RandomTenth\ and \RandomThird\ for a random order.
 The estimate finds where the gain is in aggregate; it does not pick which
-classes to rewrite first, and we report that rather than ship advice the
-measurement does not support.
+classes to rewrite first, and we report that rather than ship unsupported
+advice.
 
 \subsection{Moving the vector without words}
 \label{sec:rocchio}
@@ -527,8 +525,7 @@ a set where every other class carries an elaborated description, that half wins
 against a fair share of \FairShare, the bias running in the direction alignment
 predicts. Per-class standardisation does not rescue it, costing \ZScoreCost~points
 on the best pure policy by discarding class priors. Second, there are $2^K$ configurations for $K$ classes;
-development accuracy rises under greedy search and held-out accuracy does not
-follow.
+greedy search raises development accuracy and not held-out accuracy.
 
 The practical consequence is that description style should be uniform across
 classes. A set of individually better descriptions can classify worse than a set
@@ -548,7 +545,7 @@ Table~\ref{tab:baselines}, in Appendix~\ref{app:supporting}, places the system
 against lexical and embedding baselines. Top-3 accuracy of \OursTopThree\ is the operating point we would
 argue for: the task admits genuine ambiguity, and a tool that proposes three
 codes to a human coder is the realistic deployment. The lexical baseline there
-matches whole words; Section~\ref{sec:references} gives it a fairer form.
+matches whole words; Section~\ref{sec:references} improves it.
 
 \subsection{Stronger references}
 \label{sec:references}
@@ -627,38 +624,12 @@ it shares a bias with the labeller, and this experiment separates neither; what
 it rules out is that the effect holds only for text from the labeller's own
 family.
 
-A sharper version of the objection remains: every arm above was written for
-this study. The control for that is a class text written outside it altogether,
-and NACE has one -- the explanatory notes of WZ 2008, the German implementation
-of the classification, published by the national statistical office in 2008 for
-the registrars whose filings these documents are. The notes enter twice, because
-a single external arm would vary authorship and length together: verbatim, at
-\OfficialFullWords\ words per class against the assistant's
-\OfficialAssistantWords, and cut to their first sentence, at
-\OfficialSentenceWords. Predictions were again registered from the alignment
-changes first, and \OfficialHeld\ of \OfficialPredictions\ held; the two that
-failed did so in the direction the registration argued against, which is
-reported in full below.
-
-The result does not vindicate the external text. Verbatim it gains
-\OfficialFullGain~points over the terse control and its first sentence
-\OfficialSentenceGain, neither significant (\OfficialFullPStat,
-\OfficialSentencePStat), and both lose Top-3 against the control
-(\OfficialFullTopThree\ and \OfficialSentenceTopThree\ against
-\OfficialControlTopThree). The definitions written here beat the official note
-by \OfficialAssistantOverFull~points (\OfficialAssistantOverFullPStat) in a
-seventh of the words. Per class, the alignment change still predicts the share
-of headroom captured ($\rho = \OfficialRho$, \OfficialRhoPStat), which is the
-account holding where the arm does not: the official notes raise alignment
-least (\OfficialFullAlign\ against \OfficialAssistantAlign) and gain least.
-Authority is not what a class text needs. The notes are written to delimit an
-industry against its neighbours, enumerating what belongs and what does not,
-while these documents state what a firm does; a text aimed at the one is not
-aimed at the other. This strengthens rather than answers the authorship
-question -- our descriptions are better than the official ones, and why is
-Section~\ref{sec:source}'s open problem -- but it bounds the alternative: a
-practitioner cannot expect the gain from pasting in the classification's own
-notes (Appendix~\ref{app:official}).
+Every arm above was written for this study. The external control, NACE's own
+explanatory notes (WZ 2008), gains nothing significant over the terse control
+(\OfficialFullGain, \OfficialFullPStat); our definitions beat it by
+\OfficialAssistantOverFull~points in a seventh of the words, and per class
+alignment still predicts the gain ($\rho = \OfficialRho$;
+Appendix~\ref{app:official}).
 
 \subsection{An instruction-tuned model asked directly}
 \label{sec:llm}
@@ -689,7 +660,7 @@ One document costs \BenchCharMs~ms in the character n-gram space,
 \LLMModel, which is about \BenchLLMTimes\ times slower than the encoder whose
 accuracy it does not beat (Table~\ref{tab:cost}). The ordering matters for
 the argument rather than for the record: the description is the cheapest part of
-every system in the table.
+every system here.
 
 \subsection{Checked against human-verified labels}
 \label{sec:verified}
@@ -997,6 +968,39 @@ shared framing are released with the code.
 
 \section{The Classification's Own Notes}
 \label{app:official}
+
+Every arm of Section~\ref{sec:source} was written for this study. The control
+for that is a class text written outside it altogether,
+and NACE has one -- the explanatory notes of WZ 2008, the German implementation
+of the classification, published by the national statistical office in 2008 for
+the registrars whose filings these documents are. The notes enter twice, because
+a single external arm would vary authorship and length together: verbatim, at
+\OfficialFullWords\ words per class against the assistant's
+\OfficialAssistantWords, and cut to their first sentence, at
+\OfficialSentenceWords. Predictions were again registered from the alignment
+changes first, and \OfficialHeld\ of \OfficialPredictions\ held; the two that
+failed did so in the direction the registration argued against, which is
+reported below.
+
+The result does not vindicate the external text. Verbatim it gains
+\OfficialFullGain~points over the terse control and its first sentence
+\OfficialSentenceGain, neither significant (\OfficialFullPStat,
+\OfficialSentencePStat), and both lose Top-3 against the control
+(\OfficialFullTopThree\ and \OfficialSentenceTopThree\ against
+\OfficialControlTopThree). The definitions written here beat the official note
+by \OfficialAssistantOverFull~points (\OfficialAssistantOverFullPStat) in a
+seventh of the words. Per class, the alignment change still predicts the share
+of headroom captured ($\rho = \OfficialRho$, \OfficialRhoPStat), which is the
+account holding where the arm does not: the official notes raise alignment
+least (\OfficialFullAlign\ against \OfficialAssistantAlign) and gain least.
+Authority is not what a class text needs. The notes are written to delimit an
+industry against its neighbours, enumerating what belongs and what does not,
+while these documents state what a firm does; a text aimed at the one is not
+aimed at the other. This strengthens rather than answers the authorship
+question -- our descriptions are better than the official ones, and why is
+Section~\ref{sec:source}'s open problem -- but it bounds the alternative: a
+practitioner cannot expect the gain from pasting in the classification's own
+notes.
 
 Table~\ref{tab:official} is the full result of the external control in
 Section~\ref{sec:source}. Two sections, \OfficialDropped, carry no explanatory

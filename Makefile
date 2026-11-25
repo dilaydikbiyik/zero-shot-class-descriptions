@@ -5,7 +5,7 @@ PYTHON ?= $(shell \
 	elif command -v python3 >/dev/null 2>&1; then command -v python3; \
 	else echo python; fi)
 
-.PHONY: help install reproduce test lint annotate merge verify verify-new verify-apply second-annotator second-annotator-score llm-baseline llm-baseline-local llm-baseline-second llm-baseline-definitions study rocchio-preregister rocchio rocchio-definitions-preregister rocchio-definitions paper-tables paper submission demo clean rocchio-mpnet-preregister rocchio-mpnet rocchio-labse-preregister rocchio-labse references preprint independent-descriptions description-source-preregister description-source rocchio-sensitivity abstention dose-response description-noise hierarchy synthetic brown-preregister brown arxiv-fetch arxiv-preregister arxiv official-nace-fetch official-nace-preregister official-nace turkish-fetch turkish-native-export turkish-native-merge turkish-preregister turkish labelfree-preregister labelfree extended-set extended-model-labels extended-merge extended-preregister extended-eval author-coding author-coding-score model-coding translate-queue benchmark benchmark-second-device overlap-estimate rewrite-priority diagnose submission-record
+.PHONY: help install reproduce test lint annotate merge verify verify-new verify-apply second-annotator second-annotator-score llm-baseline llm-baseline-local llm-baseline-second llm-baseline-definitions study rocchio-preregister rocchio rocchio-definitions-preregister rocchio-definitions paper-tables paper submission demo clean rocchio-mpnet-preregister rocchio-mpnet rocchio-labse-preregister rocchio-labse references preprint independent-descriptions description-source-preregister description-source rocchio-sensitivity abstention dose-response description-noise hierarchy synthetic brown-preregister brown arxiv-fetch arxiv-preregister arxiv official-nace-fetch official-nace-preregister official-nace encoder-mechanism-preregister encoder-mechanism turkish-fetch turkish-native-export turkish-native-merge turkish-preregister turkish labelfree-preregister labelfree extended-set extended-model-labels extended-merge extended-preregister extended-eval author-coding author-coding-score model-coding translate-queue benchmark benchmark-second-device overlap-estimate rewrite-priority diagnose submission-record
 
 help:
 	@echo "Using PYTHON = $(PYTHON)"
@@ -49,6 +49,8 @@ help:
 	@echo "                labels and arXiv's own category descriptions"
 	@echo "  official-nace-fetch / official-nace-preregister / official-nace  The statistical"
 	@echo "                office's own German class texts, written before this project"
+	@echo "  encoder-mechanism-preregister / encoder-mechanism  The per-class quantity, not"
+	@echo "                only the effect, measured on all four encoders"
 	@echo "  paper-tables  Regenerate paper/tables/*.tex from results/"
 	@echo "  paper         Build paper/main.pdf (needs tectonic: brew install tectonic)"
 	@echo "  submission    Anonymous review PDF and code archive in dist/, checked"
@@ -251,6 +253,13 @@ official-nace-preregister:
 
 official-nace:
 	$(PYTHON) -m experiments.run_official_nace
+
+encoder-mechanism-preregister:
+	$(PYTHON) -m experiments.run_encoder_mechanism --preregister
+	@echo "Commit results/encoder_mechanism_preregistration.json before the next step."
+
+encoder-mechanism:
+	$(PYTHON) -m experiments.run_encoder_mechanism
 
 turkish-fetch:
 	$(PYTHON) -m experiments.fetch_turkish

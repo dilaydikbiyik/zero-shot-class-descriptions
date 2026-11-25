@@ -154,6 +154,21 @@ it is not reopened without one of those three changing.
       ablation and the cost subsection were compressed; it now ends on page
       eight with every citation intact.
 
+- [x] **The body went over eight pages, and the overflow was all mine.** When
+      the external-control paragraphs went into Section 4.4 I checked where the
+      Limitations heading starts (page 9, unchanged) and reported no regression.
+      ARR counts something else: `test_the_countable_body_still_ends_by_page_eight`
+      requires Limitations to be the *first* block on page 9, and 533 points of
+      body text sat above it. With tectonic installed the cause was measured
+      rather than guessed: a build with only those two paragraphs removed puts
+      Limitations at the top of page 9 with page 8 exactly full, so the whole
+      overflow was the addition and nothing predated it. The full account moved
+      to Appendix H (uncounted); Section 4.4 keeps a five-line summary, and the
+      rest came from paragraph-final lines of one or two words. Limitations now
+      starts on page 8. This test reads `dist/review.pdf`, which CI never
+      builds, so a green CI says nothing about the page limit: rebuild
+      (`make submission`) before trusting it.
+
 ## C. Yours, and nobody else can do them
 
 - [x] **OpenReview account** — approved, and the submission went in under it.
@@ -340,7 +355,7 @@ it is not reopened without one of those three changing.
 | Service contributor | **not nominated — this is what ended the cycle** |
 | Desk rejected: lottery, without prejudice | **27 October 2026** |
 | Next ARR cycle | not yet published; ACL 2027's ARR deadline is listed as January 2027 |
-| ISARC Marmara abstract, 12th congress | **18 December 2026** — no longer blocked |
+| ISARC Marmara abstract, 14th congress | **18 December 2026** — still open, checked 22 November |
 
 Checked against <https://aclrollingreview.org/dates> on 27 October 2026; the
 cycles after October 2026 were not listed there yet. The October review dates —
@@ -350,3 +365,13 @@ longer apply to this paper.
 Two things the desk rejection released rather than cost: the ISARC abstract was
 waiting for 17 December only because ARR forbids submitting elsewhere during
 review, and the arXiv preprint never depended on ARR at all. Both are free now.
+
+The congress was recorded here as the 12th; the organiser's page now lists the
+14th, 25–26 December 2026 in Istanbul, with the same 18 December abstract
+deadline. Abstracts of 200–300 words go to marmarakongresi@gmail.com in Word
+format, stating online or in-person attendance; review is stated as taking at
+most five days. Fees, as published: 2,100 TL online, 5,850 TL in person, 600 TL
+for a second paper. Half refundable up to the abstract deadline and not after
+the programme is published. Checked at <https://www.isarcacademy.com/marmara>
+on 22 November 2026; the older isarconference.org/marmara page still shows the
+11th congress from 2025 and is not the one to read.

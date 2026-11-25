@@ -1,0 +1,310 @@
+{
+  "study": "encoder_mechanism",
+  "registered_at": "2026-11-24T17:02:07+00:00",
+  "code_revision": "b21cb3e",
+  "method_fingerprint": "ae7967ef5f4389aed86b70397cab92193687d884afc3ac1f83f49156045dbdba",
+  "seed": 42,
+  "encoders": {
+    "MiniLM": "paraphrase-multilingual-MiniLM-L12-v2",
+    "mpnet": "paraphrase-multilingual-mpnet-base-v2",
+    "LaBSE": "sentence-transformers/LaBSE",
+    "bge-m3": "BAAI/bge-m3"
+  },
+  "control_encoder": "MiniLM",
+  "already_known_when_registered": "The corpus-level effect of every encoder here was published before this registration. No per-class quantity existed for mpnet, LaBSE or bge-m3, and the predictions are about those.",
+  "alignment": {
+    "MiniLM": {
+      "mean_alignment_gain": 0.11389635589644544,
+      "per_class": [
+        {
+          "class": "C",
+          "alignment_terse": 0.7785505000766536,
+          "alignment_gain": 0.026353716847599684
+        },
+        {
+          "class": "F",
+          "alignment_terse": 0.573357100987437,
+          "alignment_gain": 0.2505867308939964
+        },
+        {
+          "class": "G",
+          "alignment_terse": 0.7303804304668278,
+          "alignment_gain": 0.09398236027821083
+        },
+        {
+          "class": "H",
+          "alignment_terse": 0.6861330099645241,
+          "alignment_gain": 0.15165098083586648
+        },
+        {
+          "class": "I",
+          "alignment_terse": 0.6650325009975679,
+          "alignment_gain": 0.06372550177546943
+        },
+        {
+          "class": "J",
+          "alignment_terse": 0.676430939354485,
+          "alignment_gain": 0.08807039034983255
+        },
+        {
+          "class": "K",
+          "alignment_terse": 0.5912410516313734,
+          "alignment_gain": 0.048232850640093194
+        },
+        {
+          "class": "L",
+          "alignment_terse": 0.7101768912651201,
+          "alignment_gain": 0.09613769321857069
+        },
+        {
+          "class": "M",
+          "alignment_terse": 0.5118549519405569,
+          "alignment_gain": 0.18660810177539
+        },
+        {
+          "class": "N",
+          "alignment_terse": 0.6235756274486282,
+          "alignment_gain": 0.183296431759433
+        },
+        {
+          "class": "P",
+          "alignment_terse": 0.6327462075506793,
+          "alignment_gain": 0.033437960370006126
+        },
+        {
+          "class": "Q",
+          "alignment_terse": 0.5659930515111873,
+          "alignment_gain": 0.1446735520128768
+        }
+      ]
+    },
+    "mpnet": {
+      "mean_alignment_gain": 0.07764371437812216,
+      "per_class": [
+        {
+          "class": "C",
+          "alignment_terse": 0.792556732051988,
+          "alignment_gain": 0.015408938146339146
+        },
+        {
+          "class": "F",
+          "alignment_terse": 0.6176031320698618,
+          "alignment_gain": 0.20754688364951823
+        },
+        {
+          "class": "G",
+          "alignment_terse": 0.6894823175739138,
+          "alignment_gain": 0.048396442298059394
+        },
+        {
+          "class": "H",
+          "alignment_terse": 0.7402225356979245,
+          "alignment_gain": 0.13035467435569126
+        },
+        {
+          "class": "I",
+          "alignment_terse": 0.8345000829714784,
+          "alignment_gain": -0.005978716048118171
+        },
+        {
+          "class": "J",
+          "alignment_terse": 0.6658660888169706,
+          "alignment_gain": -0.027533666941534696
+        },
+        {
+          "class": "K",
+          "alignment_terse": 0.6433666735611723,
+          "alignment_gain": 0.09513361983975199
+        },
+        {
+          "class": "L",
+          "alignment_terse": 0.8148956422416301,
+          "alignment_gain": 0.019921181954205447
+        },
+        {
+          "class": "M",
+          "alignment_terse": 0.47586871714355977,
+          "alignment_gain": 0.27295849274967915
+        },
+        {
+          "class": "N",
+          "alignment_terse": 0.6392799392169952,
+          "alignment_gain": 0.009959750023328828
+        },
+        {
+          "class": "P",
+          "alignment_terse": 0.5216867889460239,
+          "alignment_gain": 0.1295362127698816
+        },
+        {
+          "class": "Q",
+          "alignment_terse": 0.6525354885145607,
+          "alignment_gain": 0.036020759740663655
+        }
+      ]
+    },
+    "LaBSE": {
+      "mean_alignment_gain": 0.11979042291817203,
+      "per_class": [
+        {
+          "class": "C",
+          "alignment_terse": 0.6579187273075522,
+          "alignment_gain": 0.023654048475019285
+        },
+        {
+          "class": "F",
+          "alignment_terse": 0.6563585425153202,
+          "alignment_gain": 0.08853912213140036
+        },
+        {
+          "class": "G",
+          "alignment_terse": 0.661699779438787,
+          "alignment_gain": 0.10721768627336836
+        },
+        {
+          "class": "H",
+          "alignment_terse": 0.6254208886190484,
+          "alignment_gain": 0.034249037146262595
+        },
+        {
+          "class": "I",
+          "alignment_terse": 0.6764148640862265,
+          "alignment_gain": 0.027711241589247204
+        },
+        {
+          "class": "J",
+          "alignment_terse": 0.6267843757153984,
+          "alignment_gain": 0.12684832409043234
+        },
+        {
+          "class": "K",
+          "alignment_terse": 0.5749550443689541,
+          "alignment_gain": 0.1576031883786173
+        },
+        {
+          "class": "L",
+          "alignment_terse": 0.5376140167542578,
+          "alignment_gain": 0.29669200025515696
+        },
+        {
+          "class": "M",
+          "alignment_terse": 0.5686495397459344,
+          "alignment_gain": 0.2307181226092898
+        },
+        {
+          "class": "N",
+          "alignment_terse": 0.6130214351836384,
+          "alignment_gain": 0.050357750415612856
+        },
+        {
+          "class": "P",
+          "alignment_terse": 0.4904330731088822,
+          "alignment_gain": 0.1562867191651094
+        },
+        {
+          "class": "Q",
+          "alignment_terse": 0.586380154928609,
+          "alignment_gain": 0.13760783448854808
+        }
+      ]
+    },
+    "bge-m3": {
+      "mean_alignment_gain": 0.06887615338304585,
+      "per_class": [
+        {
+          "class": "C",
+          "alignment_terse": 0.749779962217165,
+          "alignment_gain": 0.06122387214291358
+        },
+        {
+          "class": "F",
+          "alignment_terse": 0.7330749727809474,
+          "alignment_gain": 0.11011205481320963
+        },
+        {
+          "class": "G",
+          "alignment_terse": 0.7482473908554602,
+          "alignment_gain": 0.034552404711653883
+        },
+        {
+          "class": "H",
+          "alignment_terse": 0.7053166938435351,
+          "alignment_gain": 0.0848805157170337
+        },
+        {
+          "class": "I",
+          "alignment_terse": 0.7745267050202371,
+          "alignment_gain": 0.03635321198866337
+        },
+        {
+          "class": "J",
+          "alignment_terse": 0.7331730980194584,
+          "alignment_gain": 0.09046373972481558
+        },
+        {
+          "class": "K",
+          "alignment_terse": 0.7073348719836597,
+          "alignment_gain": 0.06861601201534595
+        },
+        {
+          "class": "L",
+          "alignment_terse": 0.7457865105182696,
+          "alignment_gain": 0.066707027523499
+        },
+        {
+          "class": "M",
+          "alignment_terse": 0.754329976662075,
+          "alignment_gain": 0.05039950207039512
+        },
+        {
+          "class": "N",
+          "alignment_terse": 0.7193164576439799,
+          "alignment_gain": 0.08698206266171482
+        },
+        {
+          "class": "P",
+          "alignment_terse": 0.6564255469734863,
+          "alignment_gain": 0.08030161674286673
+        },
+        {
+          "class": "Q",
+          "alignment_terse": 0.6860055062092301,
+          "alignment_gain": 0.055921820484438944
+        }
+      ]
+    }
+  },
+  "predictions": [
+    {
+      "id": "direction-MiniLM",
+      "claim": "On MiniLM, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "MiniLM",
+      "expected_sign": 1
+    },
+    {
+      "id": "direction-mpnet",
+      "claim": "On mpnet, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "mpnet",
+      "expected_sign": 1
+    },
+    {
+      "id": "direction-LaBSE",
+      "claim": "On LaBSE, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "LaBSE",
+      "expected_sign": 1
+    },
+    {
+      "id": "direction-bge-m3",
+      "claim": "On bge-m3, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "bge-m3",
+      "expected_sign": 1
+    },
+    {
+      "id": "control-reproduces",
+      "claim": "The control encoder MiniLM reproduces the published within-NACE correlation to within 0.01; if it does not, this module is wrong and the other three numbers are withdrawn.",
+      "published": 0.5563518240111589,
+      "tolerance": 0.01
+    }
+  ],
+  "note": "Written before any per-class recall on these encoders was computed."
+}
