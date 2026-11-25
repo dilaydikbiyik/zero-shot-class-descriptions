@@ -92,6 +92,28 @@ jobs:
             exit 1
           fi
 
+      # The layout tests read dist/review.pdf and skip when it is absent, which
+      # the test jobs always are: they never build the paper. That is how a
+      # body running two thirds of a page past ARR's eight-page limit passed CI.
+      # main.tex is already in review mode, so the built PDF is the review PDF;
+      # `make submission` cannot run here because the identity patterns it
+      # scans for are deliberately not in the repository.
+      - name: Install layout-check dependencies
+        run: pip install pandas==2.3.3 pytest==8.4.2 pdfminer.six==20251107 pypdf==6.19.0
+
+      - name: Page limit and layout
+        run: |
+          mkdir -p dist
+          cp paper/main.pdf dist/review.pdf
+          python -m pytest tests/test_experiments.py -k TestPaperLayout -q -rs 2>&1 | tee layout.log
+          status=${PIPESTATUS[0]}
+          # A skipped layout test is an unchecked page limit, not a pass.
+          if grep -q "skipped" layout.log; then
+            echo "a layout test was skipped; the page limit was not checked"
+            exit 1
+          fi
+          exit $status
+
       - uses: actions/upload-artifact@v7
         with:
           name: paper

@@ -174,8 +174,11 @@ it is not reopened without one of those three changing.
       to Appendix H (uncounted); Section 4.4 keeps a five-line summary, and the
       rest came from paragraph-final lines of one or two words. Limitations now
       starts on page 8. This test reads `dist/review.pdf`, which CI never
-      builds, so a green CI says nothing about the page limit: rebuild
-      (`make submission`) before trusting it.
+      built, so it skipped there on every run and a green CI said nothing
+      about the page limit. The paper job now copies its built PDF to
+      `dist/review.pdf`, runs the layout tests, and fails on a skip as well as
+      on a failure; checked both ways locally (the overflowing build fails,
+      a missing PDF fails).
 
 ## C. Yours, and nobody else can do them
 
