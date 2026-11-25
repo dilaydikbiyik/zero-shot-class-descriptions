@@ -222,6 +222,16 @@ def correlations() -> List[Dict]:
         out.append({"group": "Correlation",
                     "label": "official NACE notes, alignment vs. headroom, per class",
                     "p": official["per_class"]["p"]})
+    mechanism = load("encoder_mechanism")
+    if mechanism:
+        # MiniLM is the method control: it re-derives a correlation already in
+        # this family, so counting it again would test the same thing twice.
+        for encoder, stats in mechanism["encoders"].items():
+            if encoder == mechanism["control_encoder"]:
+                continue
+            out.append({"group": "Correlation",
+                        "label": f"{encoder}, alignment vs. headroom, per class",
+                        "p": stats["p"]})
     labelfree = load("labelfree_predictor")
     if labelfree:
         out.append({"group": "Correlation",

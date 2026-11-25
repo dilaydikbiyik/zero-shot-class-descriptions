@@ -72,13 +72,13 @@
 \newcommand{\ReproduceMinutes}{6}
 \newcommand{\ReproduceCPU}{Apple M5 Pro}
 \newcommand{\ReproduceCores}{18}
-\newcommand{\HolmAlignStat}{$p_{\mathrm{Holm}} = 0.111$}
-\newcommand{\HolmRocchioRhoStat}{$p_{\mathrm{Holm}} = 0.008$}
-\newcommand{\HolmLLMTopThreeStat}{$p_{\mathrm{Holm}} = 0.149$}
+\newcommand{\HolmAlignStat}{$p_{\mathrm{Holm}} = 0.116$}
+\newcommand{\HolmRocchioRhoStat}{$p_{\mathrm{Holm}} = 0.009$}
+\newcommand{\HolmLLMTopThreeStat}{$p_{\mathrm{Holm}} = 0.157$}
 \newcommand{\HolmTfidfStat}{$p_{\mathrm{Holm}} = 1.000$}
-\newcommand{\HolmVerifiedStat}{$p_{\mathrm{Holm}} = 0.108$}
-\newcommand{\HolmContrastiveStat}{$p_{\mathrm{Holm}} = 0.193$}
-\newcommand{\HolmMpnetNewsStat}{$p_{\mathrm{Holm}} = 0.122$}
+\newcommand{\HolmVerifiedStat}{$p_{\mathrm{Holm}} = 0.113$}
+\newcommand{\HolmContrastiveStat}{$p_{\mathrm{Holm}} = 0.203$}
+\newcommand{\HolmMpnetNewsStat}{$p_{\mathrm{Holm}} = 0.128$}
 \newcommand{\HolmBrownDefStat}{$p_{\mathrm{Holm}} = 1.000$}
 \newcommand{\HolmBrownRhoStat}{$p_{\mathrm{Holm}} = 1.000$}
 \newcommand{\HolmArxivRhoStat}{$p_{\mathrm{Holm}} < 0.001$}
@@ -86,12 +86,15 @@
 \newcommand{\HolmEstimateRhoStat}{$p_{\mathrm{Holm}} < 0.001$}
 \newcommand{\HolmExtendedContentStat}{$p_{\mathrm{Holm}} < 0.001$}
 \newcommand{\HolmExtendedRhoStat}{$p_{\mathrm{Holm}} = 0.013$}
-\newcommand{\HolmLabseReutersStat}{$p_{\mathrm{Holm}} = 0.871$}
+\newcommand{\HolmLabseReutersStat}{$p_{\mathrm{Holm}} = 0.920$}
 \newcommand{\HolmLabseRhoStat}{$p_{\mathrm{Holm}} = 1.000$}
-\newcommand{\EffectTests}{77}
-\newcommand{\EffectNominal}{47}
-\newcommand{\EffectHolm}{33}
-\newcommand{\EffectLostList}{Brown: definitions vs. readable names; second German set: terse German vs. terse original; NACE, bge-m3 encoder: terse German vs. terse original; full system vs. TF-IDF $\rightarrow$ nearest NACE section; full system vs. $-$ description in sector vector; full system vs. LLM, Top-3; full system vs. previous taxonomy; 20NG: terse, mpnet + update vs. terse, mpnet; Reuters: terse, LaBSE + update vs. terse, LaBSE; 20NG: contrastive margin vs. best fixed policy; alignment change vs. headroom captured; label-free update (definitions), per class; label-free update (terse, LaBSE), per class; Brown, alignment vs. headroom, per class}
+\newcommand{\HolmMechMpnetStat}{$p_{\mathrm{Holm}} = 1.000$}
+\newcommand{\HolmMechLabseStat}{$p_{\mathrm{Holm}} = 0.018$}
+\newcommand{\HolmMechBgeStat}{$p_{\mathrm{Holm}} = 1.000$}
+\newcommand{\EffectTests}{80}
+\newcommand{\EffectNominal}{49}
+\newcommand{\EffectHolm}{34}
+\newcommand{\EffectLostList}{Brown: definitions vs. readable names; second German set: terse German vs. terse original; NACE, bge-m3 encoder: terse German vs. terse original; full system vs. TF-IDF $\rightarrow$ nearest NACE section; full system vs. $-$ description in sector vector; full system vs. LLM, Top-3; full system vs. previous taxonomy; 20NG: terse, mpnet + update vs. terse, mpnet; Reuters: terse, LaBSE + update vs. terse, LaBSE; 20NG: contrastive margin vs. best fixed policy; alignment change vs. headroom captured; label-free update (definitions), per class; label-free update (terse, LaBSE), per class; Brown, alignment vs. headroom, per class; mpnet, alignment vs. headroom, per class}
 \newcommand{\RocchioK}{25}
 \newcommand{\RocchioHeld}{5}
 \newcommand{\RocchioPredictions}{5}
@@ -224,6 +227,21 @@
 \newcommand{\OfficialSentenceAlign}{-0.005}
 \newcommand{\OfficialAssistantOverFull}{+21.4}
 \newcommand{\OfficialAssistantOverFullPStat}{$p < 0.001$}
+\newcommand{\MechMinilmRho}{+0.556}
+\newcommand{\MechMinilmPStat}{$p = 0.060$}
+\newcommand{\MechMinilmN}{12}
+\newcommand{\MechMpnetRho}{+0.599}
+\newcommand{\MechMpnetPStat}{$p = 0.040$}
+\newcommand{\MechMpnetN}{12}
+\newcommand{\MechLabseRho}{+0.858}
+\newcommand{\MechLabsePStat}{$p < 0.001$}
+\newcommand{\MechLabseN}{12}
+\newcommand{\MechBgeRho}{+0.591}
+\newcommand{\MechBgePStat}{$p = 0.056$}
+\newcommand{\MechBgeN}{11}
+\newcommand{\MechHeld}{5}
+\newcommand{\MechPredictions}{5}
+\newcommand{\MechControlDrift}{0.000}
 \newcommand{\BrownN}{413}
 \newcommand{\BrownClasses}{15}
 \newcommand{\BrownTruncate}{1200}
@@ -311,9 +329,9 @@
 \newcommand{\SynthNeighbourLoss}{-0.012}
 \newcommand{\SynthOtherChange}{+0.001}
 \newcommand{\SynthNarrowOwnGain}{+0.025}
-\newcommand{\RegisteredStudies}{ten}
-\newcommand{\RegisteredPredictions}{46}
-\newcommand{\RegisteredHeld}{37}
+\newcommand{\RegisteredStudies}{eleven}
+\newcommand{\RegisteredPredictions}{51}
+\newcommand{\RegisteredHeld}{42}
 \newcommand{\RegisteredFailed}{nine}
 \newcommand{\PriorityCorpora}{NACE, Reuters, Brown}
 \newcommand{\PriorityExcluded}{20NG, arXiv}

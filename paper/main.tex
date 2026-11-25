@@ -345,7 +345,10 @@ gives $p = \AlignPermP$, and leaving out any one class keeps $\rho$ between
 $\AlignLooMin$ and $\AlignLooMax$. It was, however, the best of five candidates,
 and corrected together with every other test in the paper it is not significant
 on its own (\HolmAlignStat); Section~\ref{sec:rocchio} therefore tests it
-prospectively. Neither the lexical overlap between a class name and its
+prospectively. Nor is it one encoder's: with signs registered first, it is
+positive on mpnet, LaBSE and \BgeModel\ ($\rho = \MechMpnetRho$,
+\MechLabseRho, \MechBgeRho), though over \MechMpnetN\ NACE classes only
+LaBSE's survives correction (\HolmMechLabseStat; Appendix~\ref{app:mechanism}). Neither the lexical overlap between a class name and its
 documents nor the confusability of the class vector predicts anything. Words
 added correlates \emph{negatively}: the recipe is not to write more.
 
@@ -954,6 +957,26 @@ across conditions. Spelling the identifier out is worth
 \BrownSpellGain~points (\BrownSpellPStat), the same small jump the other
 corpora show. The genre categories, their readable names and their definitions
 are in the released code.
+
+\section{The Mechanism on Four Encoders}
+\label{app:mechanism}
+
+The effect replicates on every encoder in Section~\ref{sec:descriptions}; this
+appendix asks whether the per-class quantity does. The same NACE documents,
+the same two class texts and the same formula were embedded by each encoder.
+Alignment changes were computed and the sign of each correlation registered
+before any per-class recall existed on mpnet, LaBSE or \BgeModel; the
+corpus-level accuracy of all four was public by then, and the registration
+says so. MiniLM is the control rather than a result: re-deriving its published
+within-NACE correlation from scratch, it reproduced \MechMinilmRho\ with a
+drift of \MechControlDrift, and had it not, the other three would have been
+withdrawn. \MechHeld\ of \MechPredictions\ predictions held. The correlations
+are \MechMpnetRho\ on mpnet (\MechMpnetPStat, \HolmMechMpnetStat),
+\MechLabseRho\ on LaBSE (\MechLabsePStat, \HolmMechLabseStat) and \MechBgeRho\
+on \BgeModel\ (\MechBgePStat, \HolmMechBgeStat, over \MechBgeN\ classes, one
+being already at ceiling under the terse text). The three joined the corrected
+family; MiniLM did not, being a correlation the family already contains. At
+twelve classes the direction is what this establishes, not the strength.
 
 \section{Definitions Written by Another Model}
 \label{app:source}

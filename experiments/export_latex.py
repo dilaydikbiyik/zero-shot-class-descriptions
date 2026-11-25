@@ -808,6 +808,26 @@ def official_nace_macros(official: Dict) -> List[str]:
     ]
 
 
+MECHANISM_STEMS = {"MiniLM": "Minilm", "mpnet": "Mpnet", "LaBSE": "Labse", "bge-m3": "Bge"}
+
+
+def encoder_mechanism_macros(mechanism: Dict) -> List[str]:
+    """The per-class correlation on every encoder, MiniLM being the control."""
+    lines = []
+    for encoder, stem in MECHANISM_STEMS.items():
+        stats = mechanism["encoders"][encoder]
+        lines += [
+            r"\newcommand{\Mech%sRho}{%+.3f}" % (stem, stats["rho"]),
+            r"\newcommand{\Mech%sPStat}{%s}" % (stem, p_stat(stats["p"])),
+            r"\newcommand{\Mech%sN}{%d}" % (stem, stats["n_classes"]),
+        ]
+    return lines + [
+        r"\newcommand{\MechHeld}{%d}" % sum(1 for o in mechanism["outcomes"] if o["held"]),
+        r"\newcommand{\MechPredictions}{%d}" % len(mechanism["outcomes"]),
+        r"\newcommand{\MechControlDrift}{%.3f}" % mechanism["control_drift"],
+    ]
+
+
 def arxiv_table(arxiv: Dict) -> str:
     """The corpus with author-assigned labels and arXiv's own class descriptions."""
     rows = []
@@ -1300,6 +1320,9 @@ HOLM_CLAIMS = {
     "HolmExtendedRhoStat": ("Correlation", "second German set, alignment"),
     "HolmLabseReutersStat": ("Label-free update", "Reuters: terse, LaBSE"),
     "HolmLabseRhoStat": ("Correlation", "label-free update (terse, LaBSE)"),
+    "HolmMechMpnetStat": ("Correlation", "mpnet, alignment vs. headroom"),
+    "HolmMechLabseStat": ("Correlation", "LaBSE, alignment vs. headroom"),
+    "HolmMechBgeStat": ("Correlation", "bge-m3, alignment vs. headroom"),
 }
 
 
@@ -1431,6 +1454,9 @@ def main() -> int:
     official = load_optional("official_nace")
     if official:
         derived += official_nace_macros(official)
+    mechanism = load_optional("encoder_mechanism")
+    if mechanism:
+        derived += encoder_mechanism_macros(mechanism)
     brown = load_optional("brown")
     if brown:
         derived += brown_macros(brown)

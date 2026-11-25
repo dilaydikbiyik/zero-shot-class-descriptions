@@ -1,0 +1,75 @@
+{
+  "study": "encoder_mechanism",
+  "preregistration": "encoder_mechanism_preregistration.json",
+  "registered_at": "2026-11-24T17:02:07+00:00",
+  "control_encoder": "MiniLM",
+  "published_control_rho": 0.5563518240111589,
+  "control_drift": 0.0,
+  "encoders": {
+    "MiniLM": {
+      "n_classes": 12,
+      "rho": 0.5563518240111589,
+      "p": 0.060300025541073894,
+      "mean_alignment_gain": 0.11389635589644544,
+      "mean_recall_gain": 0.12054724978345004
+    },
+    "mpnet": {
+      "n_classes": 12,
+      "rho": 0.5989501304292861,
+      "p": 0.03959805571514313,
+      "mean_alignment_gain": 0.07764371437812216,
+      "mean_recall_gain": 0.06939202270792545
+    },
+    "LaBSE": {
+      "n_classes": 12,
+      "rho": 0.8581449237144743,
+      "p": 0.0003547590073493126,
+      "mean_alignment_gain": 0.11979042291817203,
+      "mean_recall_gain": 0.13960936577413205
+    },
+    "bge-m3": {
+      "n_classes": 11,
+      "rho": 0.5909090909090909,
+      "p": 0.05557560428877463,
+      "mean_alignment_gain": 0.06887615338304585,
+      "mean_recall_gain": 0.17831361775898513
+    }
+  },
+  "outcomes": [
+    {
+      "id": "direction-MiniLM",
+      "claim": "On MiniLM, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "MiniLM",
+      "expected_sign": 1,
+      "held": true
+    },
+    {
+      "id": "direction-mpnet",
+      "claim": "On mpnet, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "mpnet",
+      "expected_sign": 1,
+      "held": true
+    },
+    {
+      "id": "direction-LaBSE",
+      "claim": "On LaBSE, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "LaBSE",
+      "expected_sign": 1,
+      "held": true
+    },
+    {
+      "id": "direction-bge-m3",
+      "claim": "On bge-m3, the per-class alignment change correlates positively with the share of available headroom captured.",
+      "encoder": "bge-m3",
+      "expected_sign": 1,
+      "held": true
+    },
+    {
+      "id": "control-reproduces",
+      "claim": "The control encoder MiniLM reproduces the published within-NACE correlation to within 0.01; if it does not, this module is wrong and the other three numbers are withdrawn.",
+      "published": 0.5563518240111589,
+      "tolerance": 0.01,
+      "held": true
+    }
+  ]
+}

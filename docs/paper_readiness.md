@@ -520,7 +520,7 @@ much as on when they were committed.
    Those move the class vectors +0.0013 and are worth +0.9 points (p = 0.061),
    while spelling the identifier out moves them +0.419 and is worth +23.9. The
    per-class relation replicates there at ρ = +0.749 (p = 6×10⁻⁸) and survives
-   correction over all 77 tests. What remains is a corpus large enough and
+   correction over all 80 tests. What remains is a corpus large enough and
    independent enough to re-test the German task itself, which is a data
    problem rather than an experiment.
 6. ~~**The quantity itself, estimated without labels.**~~ **Done, and it held.**

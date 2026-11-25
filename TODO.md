@@ -4,11 +4,11 @@ What is done, what is open, and what is deliberately not being done. Updated as
 work lands; every claim here points at the file that settles it.
 
 **Where the project stands.** Six evaluation sets, 12,341 documents, 108
-classes. Nine preregistered studies, 40 predictions committed to version control
-before they were measured, 33 held and the seven failures published. 72
-comparisons corrected together with Holm (45 nominal, 32 surviving). The advice
+classes. Eleven preregistered studies, 51 predictions committed to version control
+before they were measured, 42 held and the nine failures published. 80
+comparisons corrected together with Holm (49 nominal, 34 surviving). The advice
 the work supports is collected in `docs/recipe.md`, with a measured budget, a
-measured price for getting it wrong, and an abstention curve. 214 tests in CI,
+measured price for getting it wrong, and an abstention curve. 266 tests in CI,
 paper body at the 8-page limit. Submitted to ARR on 12 October 2026 as
 submission 6377; the version that was uploaded is pinned at tag
 `v1-arr-october-2026` and described in `docs/submission_v1.md`. **That
@@ -136,10 +136,18 @@ it is not reopened without one of those three changing.
       the whole family was corrected again, 72 tests with 32 surviving — the
       point is that they were corrected together, not that the old results
       happened to survive.
-      *Still open:* this replicates the **effect**, not the mechanism. The
-      per-class Δa-against-gain correlation was not computed on `bge-m3`, so
-      the encoder-independence of the quantity itself rests on the three
-      encoders already reported.
+      *Then closed:* that replicated the **effect**, not the mechanism, so
+      `run_encoder_mechanism.py` measured the per-class Δa-against-captured-
+      headroom correlation on all four encoders, signs registered first
+      (commit 8bc99c6). All five predictions held: MiniLM +0.556 (the control,
+      drift 0.0000 from the published value), mpnet +0.599 (p=0.040), LaBSE
+      +0.858 (p<0.001), bge-m3 +0.591 (p=0.056, n=11). Twelve classes each, so
+      two of the four are not significant alone; what the study shows is the
+      direction on every encoder, not its strength. In the paper (§5.2 and
+      Appendix G) and in the Holm family: mpnet, LaBSE and bge-m3 joined it
+      (77 → 80); MiniLM did not, being a correlation the family already holds.
+      LaBSE survives (p_Holm = 0.018), mpnet is lost to the correction, and no
+      earlier survivor dropped (33 → 34).
 - [x] The label-free estimate tested as a decision rule, not only as a
       correlation, after a review pointed out that the paper promised the first
       and measured the second. Rewriting only the classes it ranks highest
